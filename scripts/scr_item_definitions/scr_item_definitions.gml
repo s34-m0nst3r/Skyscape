@@ -55,6 +55,8 @@ function scr_item_definitions(){
 	global.items[50] = { name: "Stone Table", sprite: spr_stone_table_item, stackable: true, max_stack: 9999, type: "big block", block_id: 63, description:"Placeable"};
 	global.items[51] = { name: "Stone Chair", sprite: spr_stone_chair_item, stackable: true, max_stack: 9999, type: "big block", block_id: 64, description:"Placeable"};
 	global.items[52] = { name: "Tree Nut", sprite: spr_tree_nut, stackable: true, max_stack: 9999, type: "food", food_color_1: c_orange, food_color_2: c_yellow, hunger: 5, eat_time: 60, description: "Consumable"};
+	global.items[53] = { name: "Stone Brick", sprite: spr_stone_brick_item, stackable: true, max_stack: 9999, type: "block", block_id: 72, description: "Placeable"};
+	global.items[54] = { name: "Stone Brick Wall", sprite: spr_stone_brick_wall_item, stackable: true, max_stack: 9999, type: "wall", block_id: 73, description: "Placeable"};
 	
 	
 	

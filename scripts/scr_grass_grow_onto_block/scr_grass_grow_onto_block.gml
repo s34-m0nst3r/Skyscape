@@ -96,10 +96,17 @@ function scr_grass_grow_onto_block(gx,gy){
 		//Check if there are blocks to the left and right
 		if (global.blocks[global.world[# gx-1, gy]].solid && global.blocks[global.world[# gx+1, gy]].solid)
 		{
-			if (global.world[# gx, gy] == 21)
+			if (global.world[# gx, gy] == 21 || global.world[# gx, gy] == 74 || global.world[# gx, gy] == 75)
 				return;
 			//Block becomes a top	
-			global.world[# gx, gy] = 21;
+			var rand = irandom_range(1,3);
+			if rand == 1
+				global.world[# gx, gy] = 21;
+			else if rand == 2
+				global.world[# gx, gy] = 74;
+			else if rand == 3
+				global.world[# gx, gy] = 75;
+				
 			scr_update_chunk_hot_code(gx,gy);
 			return;
 		}

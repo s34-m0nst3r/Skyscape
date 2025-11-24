@@ -40,5 +40,7 @@ function scr_recipe_defintions(){
 	global.recipes[35] = { name: "Stone Door", sprite: spr_stone_door_item, item_id: 49, count: 1, ingredients: [[33,25]], unlocked: false, station: "workbench"};
 	global.recipes[36] = { name: "Stone Table", sprite: spr_stone_table_item, item_id: 50, count: 1, ingredients: [[33,30]], unlocked: false, station: "workbench"};
 	global.recipes[37] = { name: "Stone Chair", sprite: spr_stone_chair_item, item_id: 51, count: 1, ingredients: [[33,20]], unlocked: false, station: "workbench"};
+	global.recipes[38] = { name: "Stone Brick", sprite: spr_stone_brick_item, item_id: 53, count: 2, ingredients: [[33,4]], unlocked: false, station: "workbench"};
+	global.recipes[39] = { name: "Stone Brick Wall", sprite: spr_stone_brick_wall_item, item_id: 54, count: 4, ingredients: [[53,1]], unlocked: false, station: "workbench"};
 	
 }

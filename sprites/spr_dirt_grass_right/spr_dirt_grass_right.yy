@@ -19,7 +19,6 @@
   "height":8,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"5d19fb54-5424-4cd4-a744-c500070a4e33","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"5d19fb54-5424-4cd4-a744-c500070a4e33","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"5b0e49fb-ee0f-44f3-bab4-c78e88fc512a","blendMode":0,"displayName":"default","isLocked":false,"name":"5b0e49fb-ee0f-44f3-bab4-c78e88fc512a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_dirt_grass_right",

@@ -22,7 +22,7 @@ function scr_open_door(mx,my, state){
 			var space = true;
 			for (var i = 0; i < 3; i++)
 			{
-				if (global.world[# mx-1, my+i] != 0 || global.blocks[global.world[# mx-1, my+i]].type != "plant")
+				if (global.world[# mx-1, my+i] != 0 && global.blocks[global.world[# mx-1, my+i]].type != "plant")
 				{
 					space = false;	
 				}
@@ -61,7 +61,7 @@ function scr_open_door(mx,my, state){
 			var space = true;
 			for (var i = 0; i < 3; i++)
 			{
-				if (global.world[# mx+1, my+i] != 0  || global.blocks[global.world[# mx+1, my+i]].type != "plant")
+				if (global.world[# mx+1, my+i] != 0  && global.blocks[global.world[# mx+1, my+i]].type != "plant")
 				{
 					space = false;	
 				}
