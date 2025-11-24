@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_update_sky_light_chunk",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_update_sky_light_chunk",
+  "parent":{
+    "name":"Light",
+    "path":"folders/Scripts/Light.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

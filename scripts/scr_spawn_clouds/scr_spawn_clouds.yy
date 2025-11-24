@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_spawn_clouds",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_spawn_clouds",
+  "parent":{
+    "name":"Time",
+    "path":"folders/Scripts/Time.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_is_solid_at",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_is_solid_at",
+  "parent":{
+    "name":"World",
+    "path":"folders/Scripts/World.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

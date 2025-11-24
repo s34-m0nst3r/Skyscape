@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_count_item_in_inventory",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_count_item_in_inventory",
+  "parent":{
+    "name":"Crafting",
+    "path":"folders/Scripts/Crafting.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

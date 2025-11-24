@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_update_border_chunks",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_update_border_chunks",
+  "parent":{
+    "name":"World",
+    "path":"folders/Scripts/World.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

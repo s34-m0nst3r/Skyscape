@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_day_night",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_day_night",
+  "parent":{
+    "name":"Time",
+    "path":"folders/Scripts/Time.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

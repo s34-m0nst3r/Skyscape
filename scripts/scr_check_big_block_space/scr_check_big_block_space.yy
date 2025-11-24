@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_check_big_block_space",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_check_big_block_space",
+  "parent":{
+    "name":"World",
+    "path":"folders/Scripts/World.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

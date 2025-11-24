@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_update_chunk_liquids",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_update_chunk_liquids",
+  "parent":{
+    "name":"World",
+    "path":"folders/Scripts/World.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_check_place_block_on_self",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_check_place_block_on_self",
+  "parent":{
+    "name":"World",
+    "path":"folders/Scripts/World.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

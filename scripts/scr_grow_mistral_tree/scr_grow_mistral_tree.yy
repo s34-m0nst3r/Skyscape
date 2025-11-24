@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_grow_mistral_tree",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_grow_mistral_tree",
+  "parent":{
+    "name":"Plants",
+    "path":"folders/Scripts/Plants.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

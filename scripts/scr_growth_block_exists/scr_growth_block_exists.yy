@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_growth_block_exists",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_growth_block_exists",
+  "parent":{
+    "name":"Blocks",
+    "path":"folders/Scripts/Blocks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_bomb_explosion",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_bomb_explosion",
+  "parent":{
+    "name":"Bombs",
+    "path":"folders/Scripts/Bombs.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

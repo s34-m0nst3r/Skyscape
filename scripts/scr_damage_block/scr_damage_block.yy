@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_damage_block",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_damage_block",
+  "parent":{
+    "name":"Blocks",
+    "path":"folders/Scripts/Blocks.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_redraw_lighting",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_redraw_lighting",
+  "parent":{
+    "name":"Light",
+    "path":"folders/Scripts/Light.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

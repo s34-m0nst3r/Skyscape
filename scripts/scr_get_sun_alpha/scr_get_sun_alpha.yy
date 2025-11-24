@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_get_sun_alpha",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_get_sun_alpha",
+  "parent":{
+    "name":"Time",
+    "path":"folders/Scripts/Time.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

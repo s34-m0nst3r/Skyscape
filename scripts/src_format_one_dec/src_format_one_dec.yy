@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"src_format_one_dec",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"src_format_one_dec",
+  "parent":{
+    "name":"Player",
+    "path":"folders/Scripts/Player.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

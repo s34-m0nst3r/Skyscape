@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_get_light_source_index",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_get_light_source_index",
+  "parent":{
+    "name":"Light",
+    "path":"folders/Scripts/Light.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

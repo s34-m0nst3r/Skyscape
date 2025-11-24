@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_inv_slot_from_mouse",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_inv_slot_from_mouse",
+  "parent":{
+    "name":"Inventory",
+    "path":"folders/Scripts/Inventory.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
