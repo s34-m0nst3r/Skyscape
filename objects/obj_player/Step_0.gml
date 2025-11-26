@@ -861,7 +861,7 @@ if (alive)
 					scr_reduce_count(selected_item);
 				}
 			}
-			else if (global.items[selected_item.item].type == "bucket" && mouse_check_button_pressed(mb_left))
+			else if (global.items[selected_item.item].type == "bucket" && mouse_check_button_pressed(mb_left) && block_in_reach)
 			{
 
 				scr_use_bucket(mx,my,selected_item,swingingTool,facing);

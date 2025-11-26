@@ -5,7 +5,7 @@ function scr_grow_mistral_tree(xx,yy,i){
     for (var j = 1; j <= height+2; j++) {
 		for (var k = -2; k <= 2; k++)
 		{
-			if (global.world[# xx+k, yy-j] != 0) return i; // not enough space
+			if (global.world[# xx+k, yy-j] != 0 && global.blocks[global.world[# xx+k, yy-j]].type != "plant") return i; // not enough space
 		}
     }
 

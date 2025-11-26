@@ -12,7 +12,7 @@ function scr_recipe_defintions(){
 	global.recipes[7] = { name: "Mistral Wall", sprite: spr_mistral_wall_item, item_id: 14, count: 4, ingredients: [[8,1]], unlocked: true, station: "basic"};
 	global.recipes[8] = { name: "Mistral Planks", sprite: spr_mistral_planks_item, item_id: 15, count: 4, ingredients: [[8,1]], unlocked: false, station: "basic"};
 	global.recipes[9] = { name: "Mistral Sword", sprite: spr_mistral_sword, item_id: 16, count: 1, ingredients: [[8,35]], unlocked: false, station: "workbench"};
-	global.recipes[10] = { name: "Mistral Hoe", sprite: spr_mistral_hoe, item_id: 17, count: 1, ingredients: [[8,35]], unlocked: false, station: "workbench"};
+	global.recipes[10] = { name: "Farmer's Hoe", sprite: spr_farmers_hoe, item_id: 17, count: 1, ingredients: [[8,35],[33,10]], unlocked: false, station: "workbench"};
 	global.recipes[11] = { name: "Mistral Chair", sprite: spr_mistral_chair_item, item_id: 18, count: 1, ingredients: [[8,20]], unlocked: false, station: "workbench"};
 	global.recipes[12] = { name: "Mistral Door", sprite: spr_mistral_door_item, item_id: 19, count: 1, ingredients: [[8,25]], unlocked: false, station: "workbench"};
 	global.recipes[13] = { name: "Torch", sprite: spr_torch_item, item_id: 23, count: 4, ingredients: [[8,1],[22,1]], unlocked: false, station: "basic"};

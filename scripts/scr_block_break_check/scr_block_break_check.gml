@@ -3,9 +3,29 @@ function scr_block_break_check(_id, mx, my){
 	//Check if level reader broken
 	if _id == 2
 		global.levelReader--;
-	if _id == 3
+	else if _id == 3
 		global.biomeReader--;
 	
+	else if (string_pos("tall grass", global.blocks[_id].name) > 0) {	
+		if (variable_instance_exists(global.blockPointers[# mx+1,my+1],"nogrow"))
+		{
+			global.blockPointers[# mx+1,my+1] = {xcord: -1, ycord: -1};
+			var growthBlock = {
+				xp: mx+1,
+				yp: my+1
+			};
+			array_push(global.growthBlocks,growthBlock);
+		}
+		if (variable_instance_exists(global.blockPointers[# mx-1,my+1],"nogrow"))
+		{
+			global.blockPointers[# mx-1,my+1] = {xcord: -1, ycord: -1};
+			var growthBlock = {
+				xp: mx-1,
+				yp: my+1
+			};
+			array_push(global.growthBlocks,growthBlock);
+		}
+	}
 		
 	if (variable_instance_exists(global.blocks[_id],"light_power"))
 	{

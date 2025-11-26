@@ -19,7 +19,7 @@ function scr_item_definitions(){
 	global.items[14] = { name: "Mistral Wall", sprite: spr_mistral_wall_item, stackable: true, max_stack: 9999, type: "wall", block_id: 16, description: "Placeable"};
 	global.items[15] = { name: "Mistral Planks", sprite: spr_mistral_planks_item, stackable: true, max_stack: 9999, type: "block", block_id: 17, description: "Placeable"};
 	global.items[16] = { name: "Mistral Sword", sprite: spr_mistral_sword, stackable: false, type: "sword", melee_damage: 3};
-	global.items[17] = { name: "Mistral Hoe", sprite: spr_mistral_hoe, stackable: false, type: "hoe", melee_damage: 1,description: "Till soil into farmland to plant crops"};
+	global.items[17] = { name: "Farmer's Hoe", sprite: spr_farmers_hoe, stackable: false, type: "hoe", melee_damage: 1,description: "Till soil into farmland to plant crops"};
 	global.items[18] = { name: "Mistral Chair", sprite: spr_mistral_chair_item, stackable: true, max_stack: 9999, type: "big block", block_id: 18, description: "Placeable"};
 	global.items[19] = { name: "Mistral Door", sprite: spr_mistral_door_item, stackable: true, max_stack: 9999, type: "big block", block_id: 19, description: "Placeable"};
 	global.items[20] = { name: "Grass Seeds", sprite: spr_grass_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 0, description: "Plants grass on dirt blocks\nConsumable"};
@@ -45,10 +45,10 @@ function scr_item_definitions(){
 	global.items[40] = { name: "Furnace", sprite: spr_furnace_item, stackable: true, max_stack: 9999, type: "big block", block_id: 58, description: "Smelts raw materials\nPlaceable"};
 	global.items[41] = { name: "Copper Ingot", sprite: spr_copper_ingot, stackable: true, max_stack: 9999, type: "material"};
 	global.items[42] = { name: "Copper Anvil", sprite: spr_copper_anvil_item, stackable: true, max_stack: 9999, type: "big block", block_id: 59, description: "Forges tools and armor\nPlaceable"};
-	global.items[43] = { name: "Copper Sword", sprite: spr_copper_sword, stackable: false, type: "sword", melee_damage: 5};
+	global.items[43] = { name: "Copper Sword", sprite: spr_copper_sword, stackable: false, type: "sword", melee_damage: 7};
 	global.items[44] = { name: "Copper Pickaxe", sprite: spr_copper_pickaxe, stackable: false, type: "pickaxe", mining_power: 1.2, melee_damage: 2};
 	global.items[45] = { name: "Copper Axe", sprite: spr_copper_axe, stackable: false, type: "axe", woodcutting_power: 1.2, melee_damage: 2};
-	global.items[46] = { name: "Copper Hammer", sprite: spr_copper_hammer, stackable: false, type: "hammer", hammer_power: 1.2, melee_damage: 4};
+	global.items[46] = { name: "Copper Hammer", sprite: spr_copper_hammer, stackable: false, type: "hammer", hammer_power: 1.2, melee_damage: 5};
 	global.items[47] = { name: "Copper Bucket", sprite: spr_copper_bucket, stackable: false, type: "bucket", max_water: 3};
 	global.items[48] = { name: "Drain Basin", sprite: spr_drain_basin_item, stackable: true, max_stack: 9999, type: "big block", block_id: 60, description: "Holds water from buckets\nDrains water out to... somewhere?\nPlaceable"};
 	global.items[49] = { name: "Stone Door", sprite: spr_stone_door_item, stackable: true, max_stack: 9999, type: "big block", block_id: 61, description: "Placeable"};
@@ -57,6 +57,7 @@ function scr_item_definitions(){
 	global.items[52] = { name: "Tree Nut", sprite: spr_tree_nut, stackable: true, max_stack: 9999, type: "food", food_color_1: c_orange, food_color_2: c_yellow, hunger: 5, eat_time: 60, description: "Consumable"};
 	global.items[53] = { name: "Stone Brick", sprite: spr_stone_brick_item, stackable: true, max_stack: 9999, type: "block", block_id: 72, description: "Placeable"};
 	global.items[54] = { name: "Stone Brick Wall", sprite: spr_stone_brick_wall_item, stackable: true, max_stack: 9999, type: "wall", block_id: 73, description: "Placeable"};
+	global.items[55] = { name: "Blade of Grass", sprite: spr_blade_of_grass, stackable: false, type: "sword", melee_damage: 5};
 	
 	
 	

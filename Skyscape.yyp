@@ -2,7 +2,7 @@
   "$GMProject":"v1",
   "%Name":"Skyscape",
   "AudioGroups":[
-    {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -47,12 +47,14 @@
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "ForcedPrefabProjectReferences":[],
+  "ForcedPrefabProjectReferences":[
+    {"link":"io.gamemaker.sdfshaders-1.0.0","name":"io.gamemaker.sdfshaders-1.0.0","path":"io.gamemaker.sdfshaders-1.0.0.yyp",},
+  ],
   "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.13.1.193",
+    "IDEVersion":"2024.14.1.210",
   },
   "name":"Skyscape",
   "resources":[
@@ -144,6 +146,7 @@
     {"id":{"name":"spr_bag_ui","path":"sprites/spr_bag_ui/spr_bag_ui.yy",},},
     {"id":{"name":"spr_biome_reader_item","path":"sprites/spr_biome_reader_item/spr_biome_reader_item.yy",},},
     {"id":{"name":"spr_biome_reader","path":"sprites/spr_biome_reader/spr_biome_reader.yy",},},
+    {"id":{"name":"spr_blade_of_grass","path":"sprites/spr_blade_of_grass/spr_blade_of_grass.yy",},},
     {"id":{"name":"spr_block_break","path":"sprites/spr_block_break/spr_block_break.yy",},},
     {"id":{"name":"spr_blood","path":"sprites/spr_blood/spr_blood.yy",},},
     {"id":{"name":"spr_blue_mushroom_item","path":"sprites/spr_blue_mushroom_item/spr_blue_mushroom_item.yy",},},
@@ -196,6 +199,7 @@
     {"id":{"name":"spr_drain_basin_item","path":"sprites/spr_drain_basin_item/spr_drain_basin_item.yy",},},
     {"id":{"name":"spr_drain_basin","path":"sprites/spr_drain_basin/spr_drain_basin.yy",},},
     {"id":{"name":"spr_energy","path":"sprites/spr_energy/spr_energy.yy",},},
+    {"id":{"name":"spr_farmers_hoe","path":"sprites/spr_farmers_hoe/spr_farmers_hoe.yy",},},
     {"id":{"name":"spr_food_particle","path":"sprites/spr_food_particle/spr_food_particle.yy",},},
     {"id":{"name":"spr_furnace_item","path":"sprites/spr_furnace_item/spr_furnace_item.yy",},},
     {"id":{"name":"spr_furnace_test","path":"sprites/spr_furnace_test/spr_furnace_test.yy",},},
@@ -223,7 +227,6 @@
     {"id":{"name":"spr_mistral_door_item","path":"sprites/spr_mistral_door_item/spr_mistral_door_item.yy",},},
     {"id":{"name":"spr_mistral_door_open","path":"sprites/spr_mistral_door_open/spr_mistral_door_open.yy",},},
     {"id":{"name":"spr_mistral_hammer","path":"sprites/spr_mistral_hammer/spr_mistral_hammer.yy",},},
-    {"id":{"name":"spr_mistral_hoe","path":"sprites/spr_mistral_hoe/spr_mistral_hoe.yy",},},
     {"id":{"name":"spr_mistral_leaves","path":"sprites/spr_mistral_leaves/spr_mistral_leaves.yy",},},
     {"id":{"name":"spr_mistral_left_branch","path":"sprites/spr_mistral_left_branch/spr_mistral_left_branch.yy",},},
     {"id":{"name":"spr_mistral_left_stump","path":"sprites/spr_mistral_left_stump/spr_mistral_left_stump.yy",},},
