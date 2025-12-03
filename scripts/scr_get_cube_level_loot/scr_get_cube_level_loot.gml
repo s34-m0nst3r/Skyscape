@@ -7,7 +7,7 @@ function scr_get_cube_loot(level){
 		{ item: 5, chance: 200, min_level: 1 }, // MISTRAL AXE
 		{ item: 7, chance: 150, min_level: 5 }, // GUNPOWDER
 		{ item: 20, chance: 75, min_level: 2 }, // GRASS SEEDS
-		{ item: 17, chance: 200, min_level: 4 }, // MISTRAL HOE
+		{ item: 17, chance: 400, min_level: 4 }, // FARMER'S HOE
 		{ item: 22, chance: 100, min_level: 4 }, // COAL
 		{ item: 23, chance: 125, min_level: 4 }, // TORCH
 		{ item: 24, chance: 85, min_level: 2 }, // COPPER TORCH

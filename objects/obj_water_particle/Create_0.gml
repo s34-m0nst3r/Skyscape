@@ -16,3 +16,4 @@ image_yscale=scale;
 life = room_speed* 1; // disappear after ~2 * 5 seconds
 
 depth = -100;
+image_angle+=90*irandom_range(0,4);

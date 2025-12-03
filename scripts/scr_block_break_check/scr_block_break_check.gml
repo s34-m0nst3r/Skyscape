@@ -112,6 +112,14 @@ function scr_block_break_check(_id, mx, my){
 		if (left.type == "water" && left != 55)
 				array_push(obj_liquid_spread_handler.liquidBlocks,{xx: mx-1, yy: my, liquid: "water"});
 	}
+	
+	if (variable_instance_exists(global.blocks[_id],"break_particle"))
+	{
+		for (var i = 0; i < irandom_range(4,8); i++)
+		{
+			instance_create_depth(mx*8+4,my*8+4,-1,global.blocks[_id].break_particle);	
+		}
+	}
 
 	global.blockPointers[# mx, my] = {xcord: -1, ycord: -1};
 		

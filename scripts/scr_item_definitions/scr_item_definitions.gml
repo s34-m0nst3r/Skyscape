@@ -58,6 +58,7 @@ function scr_item_definitions(){
 	global.items[53] = { name: "Stone Brick", sprite: spr_stone_brick_item, stackable: true, max_stack: 9999, type: "block", block_id: 72, description: "Placeable"};
 	global.items[54] = { name: "Stone Brick Wall", sprite: spr_stone_brick_wall_item, stackable: true, max_stack: 9999, type: "wall", block_id: 73, description: "Placeable"};
 	global.items[55] = { name: "Blade of Grass", sprite: spr_blade_of_grass, stackable: false, type: "sword", melee_damage: 5};
+	global.items[56] = { name: "Copper Watering Can", sprite: spr_copper_watering_can, stackable: false, type: "watering can", max_water: 3};
 	
 	
 	

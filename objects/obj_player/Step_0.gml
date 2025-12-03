@@ -811,6 +811,19 @@ if (alive)
 					swing.facing = facing; // 0 left, 1 right
 					swingingTool = true;
 				}
+				if (global.blocks[global.world[# mx, my]].type == "soil" && !global.blocks[global.world[# mx, my-1]].solid) 
+				{
+					//Till farmland
+					global.world[# mx, my] = 76;
+					
+					//UPDATE CHUNK
+					var cx = floor(mx / global.chunk_size);
+					var cy = floor(my / global.chunk_size);
+					scr_update_chunk(cx, cy); // update the affected chunk surface
+					
+					//Check if nearby chunks should be updated
+					scr_update_border_chunks(mx,my);
+				}
 			}
 			else if (global.items[selected_item.item].type == "seed" && mouse_check_button_pressed(mb_left))
 			{

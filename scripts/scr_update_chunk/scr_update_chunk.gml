@@ -87,6 +87,7 @@ function scr_update_chunk() {
 				var by = yy * size;
 
 			    draw_set_color(c_black);
+				
 
 			    // Check each neighbor, if air then draw a line on that side
 			    // Only draw outline if neighbor is not "block" or "soil"
