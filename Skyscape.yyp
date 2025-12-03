@@ -142,6 +142,8 @@
     {"id":{"name":"scr_use_bucket","path":"scripts/scr_use_bucket/scr_use_bucket.yy",},},
     {"id":{"name":"scr_world_init","path":"scripts/scr_world_init/scr_world_init.yy",},},
     {"id":{"name":"src_format_one_dec","path":"scripts/src_format_one_dec/src_format_one_dec.yy",},},
+    {"id":{"name":"src_use_axe","path":"scripts/src_use_axe/src_use_axe.yy",},},
+    {"id":{"name":"src_use_sword","path":"scripts/src_use_sword/src_use_sword.yy",},},
     {"id":{"name":"sh_light_blur","path":"shaders/sh_light_blur/sh_light_blur.yy",},},
     {"id":{"name":"spr_bag_ui_hover","path":"sprites/spr_bag_ui_hover/spr_bag_ui_hover.yy",},},
     {"id":{"name":"spr_bag_ui","path":"sprites/spr_bag_ui/spr_bag_ui.yy",},},
