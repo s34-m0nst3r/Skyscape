@@ -1,8 +1,8 @@
 function scr_get_cube_loot(level){
 	//Loot table: {item_id, chance, min_level}
 	var loot_table = [
-	    { item: 2, chance: 250, min_level: 1 }, // 1/100 chance LEVEL READER
-		{ item: 3, chance: 250, min_level: 2 }, // BIOME READER
+	    { item: 2, chance: 300, min_level: 1 }, //  LEVEL READER
+		{ item: 3, chance: 300, min_level: 2 }, // BIOME READER
 		{ item: 1, chance: 250, min_level: 1 }, // MISTRAL PICKAXE
 		{ item: 5, chance: 200, min_level: 1 }, // MISTRAL AXE
 		{ item: 7, chance: 150, min_level: 5 }, // GUNPOWDER
@@ -14,7 +14,9 @@ function scr_get_cube_loot(level){
 		{ item: 25, chance: 135, min_level: 1 }, // CLOUD BOMB
 		{ item: 38, chance: 195, min_level: 5 }, // RAW COPPER
 		{ item: 11, blueprint: 42, chance: 225, min_level: 3 }, //COPPER ANVIL BLUEPRINT
+		{ item: 57, chance: 235, min_level: 5 }, // MAGIC CRYSTAL
 		
+		//TO REMOVE LATER
 		{ item: 38, chance: 2, min_level: 5 }, // RAW COPPER
 		{ item: 22, chance: 2, min_level: 4 }, // COAL
 		{ item: 33, chance: 2, min_level: 4 }, // STONE

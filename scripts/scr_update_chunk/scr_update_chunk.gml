@@ -91,32 +91,32 @@ function scr_update_chunk() {
 
 			    // Check each neighbor, if air then draw a line on that side
 			    // Only draw outline if neighbor is not "block" or "soil"
-				if (global.blocks[global.world[# wx, wy]].type == "block" || global.blocks[global.world[# wx, wy]].type == "soil")
+				if (global.blocks[global.world[# wx, wy]].type == "block" || global.blocks[global.world[# wx, wy]].type == "soil"  || global.blocks[global.world[# wx, wy]].type == "farmland")
 				{
 					if (wx > 0) {
 						var neighbor_id = global.world[# wx-1, wy];
-						if (neighbor_id == 0 || !(global.blocks[neighbor_id].type == "block" || global.blocks[neighbor_id].type == "soil")) {
+						if (neighbor_id == 0 || !(global.blocks[neighbor_id].type == "block" || global.blocks[neighbor_id].type == "soil"  || global.blocks[neighbor_id].type == "farmland")) {
 						    draw_line(bx+paddingOffset, by+paddingOffset-1, bx+paddingOffset, by+paddingOffset + size); // left edge
 						}
 					}
 
 					if (wx < global.world_width-1) {
 						var neighbor_id = global.world[# wx+1, wy];
-						if (neighbor_id == 0 || !(global.blocks[neighbor_id].type == "block" || global.blocks[neighbor_id].type == "soil")) {
+						if (neighbor_id == 0 || !(global.blocks[neighbor_id].type == "block" || global.blocks[neighbor_id].type == "soil"  || global.blocks[neighbor_id].type == "farmland")) {
 						    draw_line(bx+size+paddingOffset, by+paddingOffset-1, bx+size+paddingOffset, by+size+paddingOffset); // right edge
 						}
 					}
 
 					if (wy > 0) {
 						var neighbor_id = global.world[# wx, wy-1];
-						if (neighbor_id == 0 || !(global.blocks[neighbor_id].type == "block" || global.blocks[neighbor_id].type == "soil")) {
+						if (neighbor_id == 0 || !(global.blocks[neighbor_id].type == "block" || global.blocks[neighbor_id].type == "soil"  || global.blocks[neighbor_id].type == "farmland")) {
 						    draw_line(bx+paddingOffset-1, by+paddingOffset, bx+size+paddingOffset, by+paddingOffset); // top edge
 						}
 					}
 
 					if (wy < global.world_height-1) {
 						var neighbor_id = global.world[# wx, wy+1];
-						if (neighbor_id == 0 || !(global.blocks[neighbor_id].type == "block" || global.blocks[neighbor_id].type == "soil")) {
+						if (neighbor_id == 0 || !(global.blocks[neighbor_id].type == "block" || global.blocks[neighbor_id].type == "soil"  || global.blocks[neighbor_id].type == "farmland")) {
 						    draw_line(bx+paddingOffset, by+size+paddingOffset, bx+size+paddingOffset, by+size+paddingOffset); // bottom edge
 						}
 					}

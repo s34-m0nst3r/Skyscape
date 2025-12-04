@@ -114,6 +114,10 @@ data.regenRate = obj_stat_manager.regenRate;
 data.hungerRate = obj_stat_manager.hungerRate;
 data.airLossRate = obj_stat_manager.airLossRate;
 
+//BLOCK UPDATES
+data.blockTimers = global.block_timers;
+data.growthBlocks = global.growthBlocks;
+
 
 //Convert to JSON
 var json_text = json_stringify(data);

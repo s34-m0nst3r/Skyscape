@@ -17,4 +17,16 @@ if (item != undefined) {
         c_white,
         1
     );
+	if (blueprint != -1)
+	 draw_sprite_ext(
+        blueprint,
+        0,
+        swing_x,
+        swing_y,
+        scale,
+        scale  * (facing == 0 ? -1 : 1),
+        swing_angle_draw,
+        c_white,
+        1
+    );
 }

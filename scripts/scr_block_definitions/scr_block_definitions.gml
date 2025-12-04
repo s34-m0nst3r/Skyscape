@@ -78,8 +78,8 @@ function scr_block_definitions(){
 	global.blocks[73] = { name: "stone brick wall",  solid: true,  sprite: spr_stone_brick_wall, item_id: 54, durability: 100, type: "wall", floating: true, opacity: 1,canBreathe: true};
 	global.blocks[74] = { name: "dirt grass top 2",  solid: true,  sprite: spr_dirt_grass_top_2, item_id: 0, durability: 50, type: "soil", floating: true, opacity: 1,canBreathe: true, floatingPlace: true};
 	global.blocks[75] = { name: "dirt grass top 3",  solid: true,  sprite: spr_dirt_grass_top_3, item_id: 0, durability: 50, type: "soil", floating: true, opacity: 1,canBreathe: true, floatingPlace: true};
-	global.blocks[76] = { name: "dry farmland",  solid: true,  sprite: spr_dry_farmland, item_id: 0, durability: 50, type: "soil", floating: true, opacity: 1, canBreathe: true, floatingPlace: true};
-	global.blocks[77] = { name: "wet farmland",  solid: true,  sprite: spr_dry_farmland, item_id: 0, durability: 50, type: "soil", floating: true, opacity: 1, canBreathe: true, floatingPlace: true};
+	global.blocks[76] = { name: "dry farmland",  solid: true,  sprite: spr_dry_farmland, item_id: 0, durability: 50, type: "farmland", floating: true, opacity: 1, canBreathe: true, floatingPlace: true};
+	global.blocks[77] = { name: "wet farmland",  solid: true,  sprite: spr_wet_farmland, item_id: 0, durability: 50, type: "farmland", floating: true, opacity: 1, canBreathe: true, floatingPlace: true};
 	
 
 

@@ -28,9 +28,6 @@ if (is_solid_at(x, y,true)) {
     impulse_time = 7;            // optional: temporarily ignore gravity
 }
 
-// Spin
-image_angle += spin_speed;
-
 // Countdown
 life--;
 if (life <= 0) {
@@ -42,15 +39,25 @@ if (life <= 0) {
 if (hsp < 0.1 && hsp > -0.1 && vsp < 0.1 && vsp > -0.1)
 	instance_destroy(self);
 
-//SEED IDs
-if (seedtype == 0) //Grass
+//MAKE DRY FARMLAND WET
+var gx = floor(x / 8);
+var gy = floor((y + 3) / 8);
+if (global.world[# gx, gy] == 76) // DRY FARMLAND
 {
-
-	var gx = floor(x / 8);
-	var gy = floor((y + 3) / 8);
-	if (global.world[# gx, gy] == 1) //Dirt block
-	{
-		scr_grass_grow_onto_block(gx,gy);	
-	}
-
+	global.world[# gx, gy] = 77; // WET FARMLAND
+	
+	var growthBlock = {
+		xp: gx,
+		yp: gy
+	};
+	array_push(global.growthBlocks,growthBlock);	
+	
+	//UPDATE CHUNK
+	var cx = floor(gx / global.chunk_size);
+	var cy = floor(gy / global.chunk_size);
+	scr_update_chunk(cx, cy); // update the affected chunk surface
+				
+	//Check if nearby chunks should be updated
+	scr_update_border_chunks(gx,gy);
 }
+

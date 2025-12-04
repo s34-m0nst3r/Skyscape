@@ -331,166 +331,10 @@ if (alive)
 	           scr_place_block(mx,my,selected_item);
 	        }
 	        else if (global.items[selected_item.item].type == "pickaxe") {
-				if (!swingingTool) {
-			        var swing = instance_create_layer(x, y, "Instances", obj_tool_swing);
-			        swing.owner = id;
-			        swing.item_id = selected_item.item;
-			        swing.facing = facing; // 0 left, 1 right
-					swingingTool = true;
-			    }
-			    if (global.world[# mx, my] != 0  && block_in_reach
-					&& global.blocks[global.world[# mx,my]].type != "tree"
-					&& global.blocks[global.world[# mx,my]].type != "wall"
-					&& global.blocks[global.world[# mx,my]].type != "water"){
-					//Check if we have a reserved block, if so use source block instead
-					if (global.world[# mx, my] == 13) //RESERVERED
-					{
-						var mx2 = mx;
-						var my2= my;
-						mx = global.blockPointers[# mx2, my2].xcord;
-						my = global.blockPointers[# mx2, my2].ycord;
-						global.blocks[13].durability = global.blocks[global.world[# mx, my]].durability;
-					}
-					
-			        var block_id = global.world[# mx, my];
-			        var block = global.blocks[block_id];
-			        var mining_power = global.items[selected_item.item].mining_power;
-					var durability = global.blocks[global.world[# mx, my]].durability;
-
-			        //INCREASE DAMAGE
-					//Check if big block
-					if (global.blocks[global.world[# mx, my]].type == "big block") //BIG BLOCK
-					{				
-						//DAMAGE THE BLOCKS IN adjacent regions
-						for (var k = 0; k <= global.blocks[global.world[# mx, my]].xsize-1; k++)
-						{
-							for (var h = 0; h <= global.blocks[global.world[# mx, my]].ysize-1; h++)
-							{
-								//SET ALL RESERVED BLOCKS TO USE THIS DURABILITY
-								if (global.world[# mx+k, my+h] == 13)
-									scr_damage_block(mx+k,my+h,mining_power,durability);	
-							} 
-						}
-					}
-					//DAMAGE BLOCK ITSELF
-					scr_damage_block(mx,my,mining_power,durability);	
-		
-				
-
-			        // Break block if fully damaged
-			        if (global.block_damage[# mx, my] >= block.durability && (global.world[# mx, my-1] == 0 || (global.blocks[global.world[# mx, my-1]].floating))) {
-			           	//IF BIG BLOCK DESTROY RESERVED SPACE
-						if (global.blocks[global.world[# mx, my]].type == "big block")
-						{
-							for (var k = 0; k <= global.blocks[global.world[# mx, my]].xsize-1; k++)
-							{
-								for (var h = 0; h <= global.blocks[global.world[# mx, my]].ysize-1; h++)
-								{
-									//CHECK RESERVED
-									if (global.world[# mx+k, my+h] == 13)
-									{
-										scr_block_break_check(global.world[# mx+k, my+h],mx+k,my+h);
-										//REDO LIGHTING
-										if (global.blocks[global.world[# mx+k, my+h]].solid)
-										{
-										    global.world[# mx+k, my+h] = 0;
-
-										    // Push every source block to be updated
-										    var grid = global.light_grid[mx+k][my+h];
-										    var grid_len = array_length(grid);
-
-										    for (var p = 1; p < grid_len;k++) {
-										        var sx = grid[p].sx;
-										        var sy = grid[p].sy;
-
-										        // Use coordinate string as unique key
-										        var key = string(sx) + "," + string(sy);
-
-										        // Only enqueue if not already in queue
-										        if (!ds_map_exists(global.light_update_lookup, key)) {
-										            var update = { sx: sx, sy: sy };
-										            ds_queue_enqueue(global.light_update_queue, update);
-										            ds_map_add(global.light_update_lookup, key, true);
-										        }
-										    }
-										}
-				
-										global.world[# mx+k, my+h] = 0;
-							            global.block_damage[# mx+k, my+h] = 0;
-									
-									}
-								}
-							}	
-						}
-					
-						scr_block_break_check(global.world[# mx, my],mx,my);
-					
-						if (block.type == "big block")
-							scr_update_border_chunks(mx,my);
-					
-						// REDO LIGHTING
-						if (global.blocks[global.world[# mx, my]].solid)
-						{
-							global.world[# mx, my] = 0;
-
-							// Push every source block to be updated
-							var grid = global.light_grid[mx][my];
-							var grid_len = array_length(grid);
-
-							for (var k = 1; k < grid_len; k++) {
-							    var sx = grid[k].sx;
-							    var sy = grid[k].sy;
-
-							    // Use coordinate string as unique key
-							    var key = string(sx) + "," + string(sy);
-
-							    // Only enqueue if not already in queue
-							    if (!ds_map_exists(global.light_update_lookup, key)) {
-							        var update = { sx: sx, sy: sy };
-							        ds_queue_enqueue(global.light_update_queue, update);
-							        ds_map_add(global.light_update_lookup, key, true);
-							    }
-							}
-						}
-
-				
-						global.world[# mx, my] = 0;
-			            global.block_damage[# mx, my] = 0;
-					
-						//UPDATE CHUNKS
-						var cx = floor(mx / global.chunk_size);
-						var cy = floor(my / global.chunk_size);
-						scr_update_chunk(cx, cy); // update the affected chunk surface
-
-			            // Spawn item drop
-			            var drop_item_id = block.item_id;
-			            if (drop_item_id != -1) {
-			                var inst = instance_create_depth(mx*8, my*8, -5, obj_item_entity);
-			                inst.item_id = drop_item_id;
-			            }
-					
-					
-
-			        }
-			    }
+				src_use_pickaxe(mx,my,selected_item,swingingTool,block_in_reach);
 			}
 			else if (global.items[selected_item.item].type == "bomb" && mouse_check_button_pressed(mb_left)) {
-			    // Throw a bomb
-			    var bomb = instance_create_layer(x, y, "Instances", obj_projectile_bomb);
-			    bomb.owner = id;
-			    bomb.item_id = selected_item.item;
-				bomb.blockid =global.items[selected_item.item].block_id;
-				if (variable_instance_exists(global.items[selected_item.item],"second_block_id"))
-					bomb.secondblockid=global.items[selected_item.item].second_block_id;
-
-			    // Calculate direction towards mouse
-			    var dir = point_direction(x, y, mouse_x, mouse_y);
-			    var bombspd = 2.5; // tweak for strength
-			    bomb.hsp = lengthdir_x(bombspd, dir);
-			    bomb.vsp = lengthdir_y(bombspd, dir) - 4; // small upward arc
-				bomb.sprite_index = global.items[selected_item.item].sprite;
-
-			    scr_reduce_count(selected_item);
+			    src_use_bomb(selected_item);
 			}
 			else if (global.items[selected_item.item].type == "axe") {
 				src_use_axe(mx,my,selected_item,swingingTool,block_in_reach);
@@ -499,318 +343,51 @@ if (alive)
 			&& block_in_reach && scr_check_place_block_on_self(mx,my) 
 			&& !scr_is_cube_border(mx, my)
 			&& (global.blocks[global.items[selected_item.item].block_id].type != "acorn" || global.blocks[global.world[# mx, my+1]].type == "soil")
-		
 			)
 			{
-	            // place a block if space is empty (and if floating check is valid)
-				// NOTE: Since this is a big block, we must check the xsize and ysize locations for placement
-	            if (global.world[# mx, my] == 0) 
-				&& (global.blocks[global.items[selected_item.item].block_id].floating  || global.world[# mx, my+global.blocks[global.items[selected_item.item].block_id].ysize] != 0)
-				&& scr_check_big_block_space(mx,my,global.items[selected_item.item].block_id)
-				{
-					//Set the source block
-	                global.world[# mx, my] = global.items[selected_item.item].block_id; 
-				
-					//Set the reserved blocks
-					for (var i = 0; i <= global.blocks[global.items[selected_item.item].block_id].xsize-1; i++)
-					{
-						for (var j = 0; j <= global.blocks[global.items[selected_item.item].block_id].ysize-1; j++)
-						{
-							if (global.world[# mx+i, my+j] == 0)
-							{
-								global.world[# mx+i, my+j] = 13; //Set to reserved block
-								global.blockPointers[# mx+i, my+j] = {xcord: mx, ycord: my}; //Set pointer
-							}
-						}
-					}
-		
-					scr_block_place_check(global.world[# mx, my],mx,my);
-				
-					// REDO LIGHTING
-					if (global.blocks[global.world[# mx, my]].solid)
-					{
-
-					    // Push every source block to be updated
-					    var grid = global.light_grid[mx][my];
-					    var grid_len = array_length(grid);
-
-					    for (var k = 1; k < grid_len; k++) {
-					        var sx = grid[k].sx;
-					        var sy = grid[k].sy;
-
-					        // Use coordinate string as unique key
-					        var key = string(sx) + "," + string(sy);
-
-					        // Only enqueue if not already in queue
-					        if (!ds_map_exists(global.light_update_lookup, key)) {
-					            var update = { sx: sx, sy: sy };
-					            ds_queue_enqueue(global.light_update_queue, update);
-					            ds_map_add(global.light_update_lookup, key, true);
-					        }
-					    }
-					}
-
-				
-				
-					//UPDATE CHUNK
-					var cx = floor(mx / global.chunk_size);
-					var cy = floor(my / global.chunk_size);
-					scr_update_chunk(cx, cy); // update the affected chunk surface
-	                scr_reduce_count(selected_item);
-				
-					//Check if nearby chunks should be updated
-					scr_update_border_chunks(mx,my);
-					//Check bottom right blocks border chunks
-					scr_update_border_chunks(mx+global.blocks[global.items[selected_item.item].block_id].xsize,my+global.blocks[global.items[selected_item.item].block_id].ysize);
-				
-					if (!swingingTool) {
-				        var swing = instance_create_layer(x, y, "Instances", obj_tool_swing);
-				        swing.owner = id;
-				        swing.item_id = selected_item.item;
-				        swing.facing = facing; // 0 left, 1 right
-						swingingTool = true;
-				    }
-			
-				}
+	           src_place_big_block(mx,my,selected_item,swingingTool);
 	        }
 			//BLUEPRINT
 			else if (global.items[selected_item.item].type == "blueprint")
 			{
-				if (!swingingTool) {
-				    var swing = instance_create_layer(x, y, "Instances", obj_tool_swing);
-				    swing.owner = id;
-				    swing.item_id = selected_item.item;
-				    swing.facing = facing; // 0 left, 1 right
-					swingingTool = true;
-				}
-				//Grab recipe
-				for (var i = 0; i < array_length(global.recipes); i++)
-				{
-					if (global.recipes[i].item_id == selected_item.blueprint)
-					{
-						//Check if locked or unlocked
-						if (global.recipes[i].unlocked)
-						{
-							//Add cube XP
-							global.cube_blocks_mined += 15;
-						}
-						else
-						{
-							global.recipes[i].unlocked = true;
-							var msg = {
-							        text  : "Learned " + global.recipes[i].name +" recipe",
-							        alpha : 1,
-									count : 1
-							    };
-							array_push(pickup_messages, msg);
-						}
-					}
-				}
-				scr_reduce_count(selected_item);
+				src_use_blueprint(selected_item,swingingTool);
 			}
-	
 			//HAMMER
 			else if (global.items[selected_item.item].type == "hammer")
 			{
-				if (!swingingTool) {
-					var swing = instance_create_layer(x, y, "Instances", obj_tool_swing);
-					swing.owner = id;
-					swing.item_id = selected_item.item;
-					swing.facing = facing; // 0 left, 1 right
-					swing.swing_speed = 0.03;
-					swing.start_angle = 90;
-					swing.end_angle = - 90;
-					swing.scaleSize = 1.5;
-					swing.radius = 18;
-					swingingTool = true;
-				}
-				if (global.walls[# mx, my] != 0  && block_in_reach
-					&& global.blocks[global.walls[# mx,my]].type == "wall") {
-					var block_id = global.walls[# mx, my];
-					var block = global.blocks[block_id];
-					var hammer_power = global.items[selected_item.item].hammer_power;
-
-
-					// Increase damage
-				
-					var fraction = global.block_damage[# mx, my] / global.blocks[global.walls[# mx, my]].durability;
-					var startframe = -1;
-					if (fraction > 0.25 && fraction <= 0.5) startframe = 0;
-					else if (fraction > 0.5 && fraction <= 0.75) startframe = 1;
-					else if (fraction > 0.75) startframe = 2;
-			
-					global.block_damage[# mx, my] += hammer_power;
-					//ADD BLOCK TO REGENLIST (if not in list
-					for (var j = 0; j < array_length(global.regenBlocks)+1; j++)
-					{
-						if (j == array_length(global.regenBlocks))
-						{
-								var regenBlock = {
-								xp: mx,
-								yp: my,
-								wall: true
-							};
-							array_push(global.regenBlocks,regenBlock);
-						}
-						if (global.regenBlocks[j].xp == mx && global.regenBlocks[j].yp == my)
-						{
-							break;	
-						}
-					}
-
-			
-					fraction = global.block_damage[# mx, my] / global.blocks[global.walls[# mx, my]].durability;
-					var frame = -1;
-					if (fraction > 0.25 && fraction <= 0.5) frame = 0;
-					else if (fraction > 0.5 && fraction <= 0.75) frame = 1;
-					else if (fraction > 0.75) frame = 2;
-			
-					if (startframe != frame)
-					{
-						//UPDATE CHUNKS
-						var cx = floor(mx / global.chunk_size);
-						var cy = floor(my / global.chunk_size);
-						scr_update_chunk(cx, cy); // update the affected chunk surface
-					}
-					// Break block if fully damaged
-					if (global.block_damage[# mx, my] >= block.durability 
-						&& (global.walls[# mx, my-1] == 0 || (global.blocks[global.walls[# mx, my-1]].floating))) {
-						scr_block_break_check(global.walls[# mx, my],mx,my);
-						//SET BLOCK TO AIR
-						global.walls[# mx, my] = 0;
-			            global.block_damage[# mx, my] = 0;
-					
-						//UPDATE CHUNKS
-						var cx = floor(mx / global.chunk_size);
-						var cy = floor(my / global.chunk_size);
-						scr_update_chunk(cx, cy); // update the affected chunk surface
-
-			            // Spawn item drop
-			            var drop_item_id = block.item_id;
-			            if (drop_item_id != -1) {
-			                var inst = instance_create_depth(mx*8, my*8, -5, obj_item_entity);
-			                inst.item_id = drop_item_id;
-			            }
-					
-
-					}
-				}
+				src_use_hammer(mx,my,selected_item,swingingTool,block_in_reach);
 			}
 			else if (global.items[selected_item.item].type == "wall" 
 			&& block_in_reach && (scr_check_place_block_on_self(mx,my) || !global.blocks[global.items[selected_item.item].block_id].solid)
 			)
 			{
-	            // place a block if space is empty (and if floating check is valid)
-	            if (global.walls[# mx, my] == 0) && (global.blocks[global.items[selected_item.item].block_id].floating  || global.walls[# mx, my+1] != 0) {
-	                global.walls[# mx, my] = global.items[selected_item.item].block_id; //The global.blocks blckid
-				
-					//UPDATE CHUNK
-					var cx = floor(mx / global.chunk_size);
-					var cy = floor(my / global.chunk_size);
-					scr_update_chunk(cx, cy); // update the affected chunk surface
-	                scr_reduce_count(selected_item);
-				
-					//Check if nearby chunks should be updated
-					scr_update_border_chunks(mx,my);
-				
-					if (!swingingTool) {
-				        var swing = instance_create_layer(x, y, "Instances", obj_tool_swing);
-				        swing.owner = id;
-				        swing.item_id = selected_item.item;
-				        swing.facing = facing; // 0 left, 1 right
-						swingingTool = true;
-				    }
-	            }
+	            src_place_wall(mx,my,selected_item,swingingTool);
 	        }
 			else if (global.items[selected_item.item].type == "sword")
 			{
 				src_use_sword(mx,my,selected_item,swingingTool,block_in_reach);
 			}
-			else if (global.items[selected_item.item].type == "hoe")
+			else if (global.items[selected_item.item].type == "hoe" && block_in_reach)
 			{
-				if (!swingingTool) {
-					var swing = instance_create_layer(x, y, "Instances", obj_tool_swing);
-					swing.owner = id;
-					swing.item_id = selected_item.item;
-					swing.facing = facing; // 0 left, 1 right
-					swingingTool = true;
-				}
-				if (global.blocks[global.world[# mx, my]].type == "soil" && !global.blocks[global.world[# mx, my-1]].solid) 
-				{
-					//Till farmland
-					global.world[# mx, my] = 76;
-					
-					//UPDATE CHUNK
-					var cx = floor(mx / global.chunk_size);
-					var cy = floor(my / global.chunk_size);
-					scr_update_chunk(cx, cy); // update the affected chunk surface
-					
-					//Check if nearby chunks should be updated
-					scr_update_border_chunks(mx,my);
-				}
+				src_use_hoe(mx,my,selected_item,swingingTool,block_in_reach);
 			}
 			else if (global.items[selected_item.item].type == "seed" && mouse_check_button_pressed(mb_left))
 			{
-				if (!swingingTool) {
-					var swing = instance_create_layer(x, y, "Instances", obj_tool_swing);
-					swing.owner = id;
-					swing.item_id = selected_item.item;
-					swing.facing = facing; // 0 left, 1 right
-					swingingTool = true;
-				}
-			
-				//Run seed script
-				scr_seed_item(global.items[selected_item.item].seed_id);
-			
-				//UPDATE CHUNK
-				var cx = floor(mx / global.chunk_size);
-				var cy = floor(my / global.chunk_size);
-				scr_update_chunk(cx, cy); // update the affected chunk surface
-			
-				scr_reduce_count(selected_item);
-				
-				//Check if nearby chunks should be updated
-				scr_update_border_chunks(mx,my);
-			
+				src_use_seed(mx,my,selected_item,swingingTool);
 			}
 			else if (global.items[selected_item.item].type == "food" && mouse_check_button(mb_left))
 			{
-				if (!foodItem) {
-				    eat = instance_create_layer(x, y, "Instances", obj_food_eat);
-				    eat.owner = id;
-				    eat.item_id = selected_item.item;
-					eat.selected_item = selected_item;
-				    eat.facing = facing; // 0 left, 1 right
-					eat.food_color_1 = global.items[selected_item.item].food_color_1;
-					eat.food_color_2 = global.items[selected_item.item].food_color_2;
-					eat.eat_time = global.items[selected_item.item].eat_time;
-					eat.hunger = global.items[selected_item.item].hunger;
-					foodItem = true;
-				}
-				else if (foodItem && !instance_exists(eat))
-				{
-					var text = instance_create_depth(x,y,-1,obj_damage_text);
-					text.val = global.items[selected_item.item].hunger;
-					text.draw_color = make_color_rgb(252, 240, 124);
-
-					eat = 0;
-					foodItem = false;
-					scr_reduce_count(selected_item);
-				}
+				src_eat_food(foodItem,eat,selected_item);
 			}
 			else if (global.items[selected_item.item].type == "bucket" && mouse_check_button_pressed(mb_left) && block_in_reach)
 			{
-
 				scr_use_bucket(mx,my,selected_item,swingingTool,facing);
 			}
+			else if (global.items[selected_item.item].type == "watering can" && mouse_check_button_pressed(mb_left))
+			{
+				src_use_watering_can(mx,my,selected_item,swingingTool)
+			}
 		}
-
-	    // Right Click Action
-	    if (mouse_check_button(mb_right)) {
-	        if (global.items[selected_item.item].type == "block") {
-
-	        }
-	    }
 	}
 
 	// Drop item (Q)

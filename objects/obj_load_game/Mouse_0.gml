@@ -124,6 +124,10 @@ if (file_exists(save_file)) {
 	global.levelReader = 0;
 	global.biomeReader = 0;
 	
+	//BLOCK UPDATE STUFF
+	global.block_timers = data.blockTimers;
+	global.growthBlocks = data.growthBlocks;
+	
 	//Update all chunks
 	for (var cx = 0; cx < global.chunks_w; cx++) {
 	    for (var cy = 0; cy < global.chunks_h; cy++) {

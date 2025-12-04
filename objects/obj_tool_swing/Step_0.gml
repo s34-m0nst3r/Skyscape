@@ -3,15 +3,35 @@ if (!instance_exists(owner)) {
     exit;
 }
 
-// Advance swing
-swing_progress += swing_speed;
+if (!moveUp)
+{
+	// Advance swing
+	swing_progress += swing_speed;
+}
+else
+{
+	// Advance swing
+	swing_progress -= swing_speed;
+}
 if (swing_progress >= 1)
 {
-
-	instance_destroy();
-	owner.swingingTool = false;
+	if (!returnUp)
+	{
+		instance_destroy();
+		owner.swingingTool = false;
+	}
+	else
+	{
+		moveUp = true;	
+	}
 
 }
+else if (moveUp && swing_progress <= 0)
+{
+	instance_destroy();
+	owner.swingingTool = false;
+}
+
 
 // Anchor to player
 x = owner.x;

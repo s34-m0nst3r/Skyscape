@@ -60,20 +60,48 @@ function src_block_updates() {
 		var yy = global.growthBlocks[i].yp;
 		
 		 if (global.blocks[global.world[# xx, yy]].name == "mistral acorn") {		
-                // Countdown
-                if (global.block_timers[# xx, yy] <= 0) {
-                    global.block_timers[# xx, yy] = irandom_range(1000/blockUpdateRate, 8000/blockUpdateRate); // 
-                } 
-				else {
+            // Countdown
+            if (global.block_timers[# xx, yy] <= 0) {
+                global.block_timers[# xx, yy] = irandom_range(1000/blockUpdateRate, 8000/blockUpdateRate); // 
+            } 
+			else {
 
-                    global.block_timers[# xx, yy]--;
+                global.block_timers[# xx, yy]--;
 					
-					if (global.block_timers[# xx, yy] == 0)
-					{
-						i = scr_grow_mistral_tree(xx, yy,i);
-					}
-                }
-         }
+				if (global.block_timers[# xx, yy] == 0)
+				{
+					i = scr_grow_mistral_tree(xx, yy,i);
+				}
+            }
+        }
+		else if (global.blocks[global.world[# xx, yy]].name == "wet farmland") {		
+            // Countdown
+            if (global.block_timers[# xx, yy] <= 0) {
+                global.block_timers[# xx, yy] = irandom_range(80000/blockUpdateRate, 90000/blockUpdateRate); // 
+            } 
+			else {
+                global.block_timers[# xx, yy]--;
+					
+				if (global.block_timers[# xx, yy] == 0)
+				{
+					global.world[# xx,yy] = 76; //DRY FARMLAND
+					
+					array_delete(global.growthBlocks,i,1);
+					i--;
+					
+					//UPDATE CHUNK
+					var cx = floor(xx / global.chunk_size);
+					var cy = floor(yy / global.chunk_size);
+					scr_update_chunk(cx, cy); // update the affected chunk surface
+				
+					//Check if nearby chunks should be updated
+					scr_update_border_chunks(xx,yy);
+				}
+            }
+        }
+		
+		
+		
 		if (string_pos("dirt grass ", global.blocks[global.world[# xx, yy]].name) > 0) {		
             // Countdown
             if (global.block_timers[# xx, yy] <= 0) {

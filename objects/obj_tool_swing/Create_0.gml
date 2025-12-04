@@ -15,3 +15,6 @@ radius = 12;
 
 start_angle = -90; // straight up
 end_angle   =  90; // straight down
+blueprint = -1;
+returnUp = false;
+moveUp = false;
