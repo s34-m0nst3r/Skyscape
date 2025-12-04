@@ -82,4 +82,32 @@ function scr_use_bucket(mx,my,selected_item,swingingTool,facing){
 			instance_create_depth((mx*8)+4,(my*8)+6,-100,obj_water_particle);
 					
 	}
+	else
+	{
+		var block = -1;
+		if variable_instance_exists(global.blocks[global.world[# mx,my]],"water_source")
+		{
+			block =	global.blocks[global.world[# mx,my]];
+		}
+		else if  (variable_instance_exists(global.blocks[global.world[# mx,my]],"water_source") || (global.blockPointers[# mx,my].xcord != -1 && variable_instance_exists(global.blocks[global.world[# global.blockPointers[# mx,my].xcord,global.blockPointers[# mx,my].ycord]],"water_source")))
+		{
+			block = global.blocks[global.world[# global.blockPointers[# mx,my].xcord,global.blockPointers[# mx,my].ycord]];	
+		}
+		if (block != -1)
+		{
+		
+			selected_item.water_level=global.items[selected_item.item].max_water;
+
+			//SWINGING TOOL
+			var swing = instance_create_layer(x, y, "Instances", obj_tool_swing);
+			swing.owner = id;
+			swing.item_id = selected_item.item;
+			swing.facing = facing; // 0 left, 1 right
+			other.swingingTool = true;
+		
+			for (var i = 0; i < irandom_range(5,9); i++)
+				instance_create_depth((mx*8)+(8*block.xsize)/2,(my*8)+(8*block.ysize)/2,-100,obj_water_particle);
+		}
+		
+	}
 }

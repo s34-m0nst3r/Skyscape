@@ -12,9 +12,9 @@ function scr_get_cube_loot(level){
 		{ item: 23, chance: 125, min_level: 4 }, // TORCH
 		{ item: 24, chance: 85, min_level: 2 }, // COPPER TORCH
 		{ item: 25, chance: 135, min_level: 1 }, // CLOUD BOMB
-		{ item: 38, chance: 195, min_level: 5 }, // RAW COPPER
+		{ item: 38, chance: 350, min_level: 5 }, // RAW COPPER
 		{ item: 11, blueprint: 42, chance: 225, min_level: 3 }, //COPPER ANVIL BLUEPRINT
-		{ item: 57, chance: 235, min_level: 5 }, // MAGIC CRYSTAL
+		{ item: 57, chance: 495, min_level: 5 }, // MAGIC CRYSTAL
 		
 		//TO REMOVE LATER
 		{ item: 38, chance: 2, min_level: 5 }, // RAW COPPER

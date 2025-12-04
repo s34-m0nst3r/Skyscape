@@ -158,6 +158,12 @@ function scr_is_cube_core(xx, yy) {
     return (xx >= cx-1 && xx <= cx+1 && yy >= cy-1 && yy <= cy+1);
 }
 
+function scr_is_cube_top_left(xx,yy){
+	var cx = global.cube_center_x;
+    var cy = global.cube_center_y;
+    return (xx == cx-1 && yy == cy-1);
+}
+
 function scr_is_cube_border(xx, yy) {
     var cx = global.cube_center_x;
     var cy = global.cube_center_y;

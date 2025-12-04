@@ -8,7 +8,8 @@ function scr_get_mistral_level_loot(level){
 		{ item: 11, blueprint: 35, chance: 150, min_level: 2 }, // SOUP POT BLUEPRINT
 		{ item: 36, chance: 225, min_level: 1 }, // MUSHROOM SOUP
 		{ item: 37, chance: 115, min_level: 4 }, // WATER BOMB
-		{ item: 11, blueprint: 40, chance: 150, min_level: 3 } //FURNACE BLUEPRINT
+		{ item: 11, blueprint: 40, chance: 150, min_level: 3 }, //FURNACE BLUEPRINT
+		{ item: 59, chance: 100, min_level: 2 }, // CORN SEEDS
 	];
 
 	// Loop through unlocked items

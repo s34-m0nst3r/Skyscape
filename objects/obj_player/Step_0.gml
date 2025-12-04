@@ -331,13 +331,13 @@ if (alive)
 	           scr_place_block(mx,my,selected_item);
 	        }
 	        else if (global.items[selected_item.item].type == "pickaxe") {
-				src_use_pickaxe(mx,my,selected_item,swingingTool,block_in_reach);
+				scr_use_pickaxe(mx,my,selected_item,swingingTool,block_in_reach);
 			}
 			else if (global.items[selected_item.item].type == "bomb" && mouse_check_button_pressed(mb_left)) {
 			    src_use_bomb(selected_item);
 			}
 			else if (global.items[selected_item.item].type == "axe") {
-				src_use_axe(mx,my,selected_item,swingingTool,block_in_reach);
+				scr_use_axe(mx,my,selected_item,swingingTool,block_in_reach);
 			}
 			else if (global.items[selected_item.item].type == "big block" 
 			&& block_in_reach && scr_check_place_block_on_self(mx,my) 
@@ -345,7 +345,7 @@ if (alive)
 			&& (global.blocks[global.items[selected_item.item].block_id].type != "acorn" || global.blocks[global.world[# mx, my+1]].type == "soil")
 			)
 			{
-	           src_place_big_block(mx,my,selected_item,swingingTool);
+	           scr_place_big_block(mx,my,selected_item,swingingTool);
 	        }
 			//BLUEPRINT
 			else if (global.items[selected_item.item].type == "blueprint")
@@ -361,23 +361,23 @@ if (alive)
 			&& block_in_reach && (scr_check_place_block_on_self(mx,my) || !global.blocks[global.items[selected_item.item].block_id].solid)
 			)
 			{
-	            src_place_wall(mx,my,selected_item,swingingTool);
+	            scr_place_wall(mx,my,selected_item,swingingTool);
 	        }
 			else if (global.items[selected_item.item].type == "sword")
 			{
-				src_use_sword(mx,my,selected_item,swingingTool,block_in_reach);
+				scr_use_sword(mx,my,selected_item,swingingTool,block_in_reach);
 			}
 			else if (global.items[selected_item.item].type == "hoe" && block_in_reach)
 			{
-				src_use_hoe(mx,my,selected_item,swingingTool,block_in_reach);
+				scr_use_hoe(mx,my,selected_item,swingingTool,block_in_reach);
 			}
 			else if (global.items[selected_item.item].type == "seed" && mouse_check_button_pressed(mb_left))
 			{
-				src_use_seed(mx,my,selected_item,swingingTool);
+				scr_use_seed(mx,my,selected_item,swingingTool);
 			}
 			else if (global.items[selected_item.item].type == "food" && mouse_check_button(mb_left))
 			{
-				src_eat_food(foodItem,eat,selected_item);
+				scr_eat_food(foodItem,eat,selected_item);
 			}
 			else if (global.items[selected_item.item].type == "bucket" && mouse_check_button_pressed(mb_left) && block_in_reach)
 			{
@@ -385,7 +385,7 @@ if (alive)
 			}
 			else if (global.items[selected_item.item].type == "watering can" && mouse_check_button_pressed(mb_left))
 			{
-				src_use_watering_can(mx,my,selected_item,swingingTool)
+				scr_use_watering_can(mx,my,selected_item,swingingTool)
 			}
 		}
 	}

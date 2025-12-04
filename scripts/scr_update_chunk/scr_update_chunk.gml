@@ -153,10 +153,34 @@ function scr_update_chunk() {
             }
 
             // Draw cube zone overlays
-            if (scr_is_cube_core(wx, wy)) {
-                draw_sprite(spr_cube_core_border, 0, xx*8+paddingOffset, yy*8+paddingOffset);
+            if (wx == global.cube_center_x-1 && wy == global.cube_center_y-1) {
+                draw_sprite(spr_cube_core_border_top_left, 0, xx*8+paddingOffset, yy*8+paddingOffset);
             }
-			if (scr_is_cube_border(wx, wy)) {
+			else if (wx == global.cube_center_x && wy == global.cube_center_y-1) {
+                draw_sprite(spr_cube_core_border_top, 0, xx*8+paddingOffset, yy*8+paddingOffset);
+            }
+			else if (wx == global.cube_center_x+1 && wy == global.cube_center_y-1) {
+                draw_sprite(spr_cube_core_border_top_right, 0, xx*8+paddingOffset, yy*8+paddingOffset);
+            }
+			 if (wx == global.cube_center_x-1 && wy == global.cube_center_y+1) {
+                draw_sprite(spr_cube_core_border_bottom_left, 0, xx*8+paddingOffset, yy*8+paddingOffset);
+            }
+			else if (wx == global.cube_center_x && wy == global.cube_center_y+1) {
+                draw_sprite(spr_cube_core_border_bottom, 0, xx*8+paddingOffset, yy*8+paddingOffset);
+            }
+			else if (wx == global.cube_center_x+1 && wy == global.cube_center_y+1) {
+                draw_sprite(spr_cube_core_border_bottom_right, 0, xx*8+paddingOffset, yy*8+paddingOffset);
+            }
+			else if (wx == global.cube_center_x-1 && wy == global.cube_center_y) {
+                draw_sprite(spr_cube_core_border_left, 0, xx*8+paddingOffset, yy*8+paddingOffset);
+            }
+			else if (wx == global.cube_center_x+1 && wy == global.cube_center_y) {
+                draw_sprite(spr_cube_core_border_right, 0, xx*8+paddingOffset, yy*8+paddingOffset);
+            }
+			
+			
+			
+			else if (scr_is_cube_border(wx, wy)) {
                 draw_sprite(spr_cube_air_border, 0, xx*8+paddingOffset, yy*8+paddingOffset);
             }
         }

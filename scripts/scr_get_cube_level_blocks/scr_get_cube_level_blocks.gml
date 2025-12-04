@@ -3,7 +3,11 @@ function scr_get_cube_level_blocks(level){
 	var loot_table = [
 	    { block: 30, chance: 20, min_level: 1 }, //Cloud Block
 		{ block: 37, chance: 35, min_level: 4 }, //Rainy Cloud Block
-		{ block: 44, chance: 15, min_level: 5 }, //Stone Block
+		{ block: 44, chance: 30, min_level: 3 }, //Stone Block
+		{ block: 44, chance: 12, min_level: 5 }, //Stone Block
+		{ block: 44, chance: 8, min_level: 6 }, //Stone Block
+		{ block: 78, chance: 60, min_level: 5 }, //Copper Ore
+		{ block: 79, chance: 80, min_level: 5 }, //Magic Crystal Ore
 	];
 
 	// Loop through unlocked items

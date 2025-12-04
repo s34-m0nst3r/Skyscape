@@ -60,6 +60,8 @@ function scr_item_definitions(){
 	global.items[55] = { name: "Blade of Grass", sprite: spr_blade_of_grass, stackable: false, type: "sword", melee_damage: 5};
 	global.items[56] = { name: "Copper Watering Can", sprite: spr_copper_watering_can, stackable: false, type: "watering can", max_water: 3};
 	global.items[57] = { name: "Magic Crystal", sprite: spr_magic_crystal, stackable: true, max_stack: 9999, type: "material"};
+	global.items[58] = { name: "Wishing Well", sprite: spr_wishing_well_item, stackable: true, max_stack: 9999, type: "big block", block_id: 80, description: "Water source for buckets & cans\nThrow a coin and make a wish!\nPlaceable"};
+	global.items[59] = { name: "Corn Seeds", sprite: spr_corn_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 0, description: "Plant on farmland\nConsumable"};
 	
 	
 	
