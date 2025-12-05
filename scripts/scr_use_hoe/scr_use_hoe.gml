@@ -81,10 +81,14 @@ function scr_use_hoe(mx,my,selected_item,swingingTool,block_in_reach){
 			global.world[# mx,my] = 0;
 				
 			// Spawn item drop
-			var drop_item_id = block.item_id;
-			if (drop_item_id != -1) {
-			    var inst = instance_create_depth(mx*8, my*8, -5, obj_item_entity);
-			    inst.item_id = drop_item_id;
+			var dropCount = is_method(block.dropCount) ? block.dropCount() : block.dropCount;
+			for (var i = 0; i < dropCount; i++)
+			{
+				var drop_item_id = is_method(block.item_id) ? block.item_id() : block.item_id;
+				if (drop_item_id != -1) {
+				    var inst = instance_create_depth(mx*8+random_range(-1,1), my*8+random_range(-1,1), -5, obj_item_entity);
+				    inst.item_id = drop_item_id;
+				}
 			}
 				
 			var cx = floor(mx / global.chunk_size);

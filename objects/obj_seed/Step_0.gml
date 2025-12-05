@@ -54,3 +54,60 @@ if (seedtype == 0) //Grass
 	}
 
 }
+//CROPS
+else
+{
+	var gx = floor(x / 8);
+	var gy = floor((y + 3) / 8);
+	if ((global.world[# gx, gy] == 76 || global.world[# gx, gy] == 77) && global.world[# gx,gy-1] == 0) //Dry farmland
+	{
+		var valid = true;
+		if (global.blocks[seedtype].type == "big block")
+		{
+			for (var i = 0; i < global.blocks[seedtype].ysize; i++)
+			{
+				if (global.world[# gx, gy-i-1] != 0)
+					valid = false;
+			}
+			//CHECK IF WE CAN PLACE BIG BLOCK
+			if (valid)
+			{
+				//Set reserved blocks
+				for (var j = 0; j < global.blocks[seedtype].ysize; j++)
+				{
+					global.world[# gx, gy-j-1] = 13; //Set to reserved block
+					global.blockPointers[# gx, gy-j-1] = {xcord: gx, ycord: gy-global.blocks[seedtype].ysize}; //Set pointer
+				}
+				//Change top reserved block to crop
+				global.world[# gx, gy -global.blocks[seedtype].ysize] = seedtype;
+				//UPDATE CHUNK
+				var cx = floor(gx / global.chunk_size);
+				var cy = floor((gy-global.blocks[seedtype].ysize) / global.chunk_size);
+				scr_update_chunk(cx, cy); // update the affected chunk surface
+				//Check if nearby chunks should be updated
+				scr_update_border_chunks(gx,gy-global.blocks[seedtype].ysize);
+
+				//Check bottom right blocks border chunks
+				scr_update_border_chunks(gx,gy+global.blocks[seedtype].ysize);
+				
+				//Check block
+				scr_block_place_check(seedtype,gx,gy-global.blocks[seedtype].ysize);
+				
+			}
+		}
+		else
+		{
+			//Set the seed  (not big block)
+			global.world[# gx, gy -1] = seedtype;
+			
+			//UPDATE CHUNK
+			var cx = floor(gx / global.chunk_size);
+			var cy = floor(gy-1 / global.chunk_size);
+			scr_update_chunk(cx, cy); // update the affected chunk surface
+			//Check if nearby chunks should be updated
+			scr_update_border_chunks(gx,gy-1);
+		}
+
+	}
+	
+}

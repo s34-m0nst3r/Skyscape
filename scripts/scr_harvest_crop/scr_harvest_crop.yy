@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_harvest_crop",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_harvest_crop",
+  "parent":{
+    "name":"Plants",
+    "path":"folders/Scripts/Plants.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

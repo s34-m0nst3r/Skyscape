@@ -6,8 +6,9 @@ function scr_get_cube_level_blocks(level){
 		{ block: 44, chance: 30, min_level: 3 }, //Stone Block
 		{ block: 44, chance: 12, min_level: 5 }, //Stone Block
 		{ block: 44, chance: 8, min_level: 6 }, //Stone Block
-		{ block: 78, chance: 60, min_level: 5 }, //Copper Ore
-		{ block: 79, chance: 80, min_level: 5 }, //Magic Crystal Ore
+		{ block: 78, chance: 80, min_level: 5 }, //Copper Ore
+		{ block: 79, chance: 140, min_level: 6 }, //Magic Crystal Ore
+		{ block: 85, chance: 40, min_level: 5 }, //Clay Block
 	];
 
 	// Loop through unlocked items

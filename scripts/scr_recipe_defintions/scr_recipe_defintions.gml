@@ -44,5 +44,6 @@ function scr_recipe_defintions(){
 	global.recipes[39] = { name: "Stone Brick Wall", sprite: spr_stone_brick_wall_item, item_id: 54, count: 4, ingredients: [[53,1]], unlocked: false, station: "workbench"};
 	global.recipes[40] = { name: "Copper Watering Can", sprite: spr_copper_watering_can, item_id: 56, count: 1, ingredients: [[41,25]], unlocked: true, station: "anvil"};
 	global.recipes[41] = { name: "Wishing Well", sprite: spr_wishing_well_item, item_id: 58, count: 1, ingredients: [[8,20],[33,30],[57,5]], unlocked: false, station: "workbench"};
+	global.recipes[42] = { name: "Brick", sprite: spr_brick, item_id: 62, count: 2, ingredients: [[61,4],[22,1]], unlocked: true, station: "furnace"};
 	
 }

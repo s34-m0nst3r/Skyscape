@@ -8,7 +8,7 @@ function scr_use_seed(mx,my,selected_item,swingingTool){
 	}
 			
 	//Run seed script
-	scr_seed_item(global.items[selected_item.item].seed_id);
+	scr_seed_item(selected_item.item,global.items[selected_item.item].seed_id);
 			
 	//UPDATE CHUNK
 	var cx = floor(mx / global.chunk_size);

@@ -59,7 +59,66 @@ function src_block_updates() {
 		var xx = global.growthBlocks[i].xp;
 		var yy = global.growthBlocks[i].yp;
 		
-		 if (global.blocks[global.world[# xx, yy]].name == "mistral acorn") {		
+		//CROPS
+		 if (variable_instance_exists(global.blocks[global.world[# xx, yy]],"crop"))
+		 {
+			//Countdown
+            if (global.block_timers[# xx, yy] <= 0) {
+                global.block_timers[# xx, yy] = irandom_range(global.growthBlocks[i].lowerGrowth/blockUpdateRate, global.growthBlocks[i].upperGrowth/blockUpdateRate); // 
+            } 
+			else {
+				//Check if we have dry farmland or not
+				var farmland = 0;
+				var k = 0;
+				while (farmland = 0)
+				{
+					k++
+					if (global.world[# xx,yy+k] == 76 )
+					{
+						farmland = 76	
+						global.block_timers[# xx, yy]-=0.1;
+					}
+					else if (global.world[# xx,yy+k] == 77)
+					{
+						farmland = 77;	
+						global.block_timers[# xx, yy]--;
+					}
+				}
+					
+				if (global.block_timers[# xx, yy] == 0)
+				{
+					array_delete(global.growthBlocks,i,1);
+					i--;
+					
+					//Set to next stage
+					global.world[# xx, yy] = global.blocks[global.world[# xx,yy]].next_stage;
+					
+					scr_block_place_check(global.world[# xx,yy],xx,yy);
+					
+					//UPDATE CHUNK
+					var cx = floor(xx / global.chunk_size);
+					var cy = floor(yy / global.chunk_size);
+					scr_update_chunk(cx, cy); // update the affected chunk surface
+				
+					//Check if nearby chunks should be updated
+					scr_update_border_chunks(xx,yy);
+					
+					//UPDATE BOTTOM
+					var block = global.blocks[global.world[# xx,yy]];
+					if (block.type = "big block")
+					{
+						//UPDATE CHUNK
+						var cx = floor(xx / global.chunk_size);
+						var cy = floor((yy+global.blocks[global.world[# xx,yy]].ysize) / global.chunk_size);
+						scr_update_chunk(cx, cy); // update the affected chunk surface
+				
+						//Check if nearby chunks should be updated
+						scr_update_border_chunks(xx,yy);	
+					}
+				}
+            }
+		 }
+		 else if (global.blocks[global.world[# xx, yy]].name == "mistral acorn") {		
             // Countdown
             if (global.block_timers[# xx, yy] <= 0) {
                 global.block_timers[# xx, yy] = irandom_range(1000/blockUpdateRate, 8000/blockUpdateRate); // 
@@ -77,8 +136,8 @@ function src_block_updates() {
 		else if (global.blocks[global.world[# xx, yy]].name == "wet farmland") {		
             // Countdown
             if (global.block_timers[# xx, yy] <= 0) {
-                global.block_timers[# xx, yy] = irandom_range(80000/blockUpdateRate, 90000/blockUpdateRate); // 
-            } 
+                global.block_timers[# xx, yy] = irandom_range(30000/blockUpdateRate, 40000/blockUpdateRate); // 
+			} 
 			else {
                 global.block_timers[# xx, yy]--;
 					

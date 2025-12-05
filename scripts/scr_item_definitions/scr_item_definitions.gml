@@ -22,7 +22,7 @@ function scr_item_definitions(){
 	global.items[17] = { name: "Farmer's Hoe", sprite: spr_farmers_hoe, stackable: false, type: "hoe", melee_damage: 1,description: "Till soil into farmland to plant crops"};
 	global.items[18] = { name: "Mistral Chair", sprite: spr_mistral_chair_item, stackable: true, max_stack: 9999, type: "big block", block_id: 18, description: "Placeable"};
 	global.items[19] = { name: "Mistral Door", sprite: spr_mistral_door_item, stackable: true, max_stack: 9999, type: "big block", block_id: 19, description: "Placeable"};
-	global.items[20] = { name: "Grass Seeds", sprite: spr_grass_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 0, description: "Plants grass on dirt blocks\nConsumable"};
+	global.items[20] = { name: "Grass Seeds", sprite: spr_grass_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 0, seed_color: c_green, description: "Plants grass on dirt blocks\nConsumable"};
 	global.items[21] = { name: "Cloud Block", sprite: spr_cloud_block_item, stackable: true, max_stack: 9999, type: "block", block_id: 30, description: "Placeable"};
 	global.items[22] = { name: "Coal", sprite: spr_coal, stackable: true, max_stack: 9999, type: "material"};
 	global.items[23] = { name: "Torch", sprite: spr_torch_item, stackable: true, max_stack: 9999, type: "block", block_id: 31, left_block: 33, right_block: 35, description: "Placeable"};
@@ -61,7 +61,10 @@ function scr_item_definitions(){
 	global.items[56] = { name: "Copper Watering Can", sprite: spr_copper_watering_can, stackable: false, type: "watering can", max_water: 3};
 	global.items[57] = { name: "Magic Crystal", sprite: spr_magic_crystal, stackable: true, max_stack: 9999, type: "material"};
 	global.items[58] = { name: "Wishing Well", sprite: spr_wishing_well_item, stackable: true, max_stack: 9999, type: "big block", block_id: 80, description: "Water source for buckets & cans\nThrow a coin and make a wish!\nPlaceable"};
-	global.items[59] = { name: "Corn Seeds", sprite: spr_corn_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 0, description: "Plant on farmland\nConsumable"};
+	global.items[59] = { name: "Corn Seeds", sprite: spr_corn_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 81, description: "Plant on farmland\nConsumable",seed_color: c_yellow};
+	global.items[60] = { name: "Corn", sprite: spr_corn, stackable: true, max_stack: 9999, type: "food", food_color_1: c_green, food_color_2: c_yellow, hunger: 15, eat_time: 140, description: "Consumable"};
+	global.items[61] = { name: "Clay Ball", sprite: spr_clay_ball, stackable: true, max_stack: 9999, type: "material"};
+	global.items[62] = { name: "Brick", sprite: spr_brick, stackable: true, max_stack: 9999, type: "material"};
 	
 	
 	

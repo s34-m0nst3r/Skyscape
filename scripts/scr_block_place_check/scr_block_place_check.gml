@@ -40,6 +40,17 @@ function scr_block_place_check(_id, mx,my){
 		}
 		array_push(global.animatedBlocks,animatedBlock);
 	}
+	if (variable_instance_exists(global.blocks[_id],"crop"))
+	{
+		var growthBlock = {
+			xp: mx,
+			yp: my,
+			crop: true,
+			lowerGrowth: global.blocks[_id].lowerGrowth,
+			upperGrowth: global.blocks[_id].upperGrowth,
+		};
+		array_push(global.growthBlocks,growthBlock);	
+	}
 	if (variable_instance_exists(global.blocks[_id],"light_power"))
 	{
 		var lightSource = {
