@@ -67,6 +67,11 @@ function scr_item_definitions(){
 	global.items[62] = { name: "Brick", sprite: spr_brick, stackable: true, max_stack: 9999, type: "material"};
 	global.items[63] = { name: "Brick Block", sprite: spr_brick_block_item, stackable: true, max_stack: 9999, type: "block", block_id: 86, description: "Placeable"};
 	global.items[64] = { name: "Oven", sprite: spr_oven_item, stackable: true, max_stack: 9999, type: "big block", block_id: 87, description: "Cooks food\nPlaceable"};
+	global.items[65] = { name: "Popcorn", sprite: spr_popcorn, stackable: true, max_stack: 9999, type: "food", food_color_1: c_olive, food_color_2: c_yellow, hunger: 20, eat_time: 50, description: "Consumable"};
+	global.items[66] = { name: "Wheat Seeds", sprite: spr_wheat_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 88, description: "Plant on farmland\nConsumable",seed_color: c_yellow};
+	global.items[67] = { name: "Plant Fiber", sprite: spr_plant_fiber, stackable: true, max_stack: 9999, type: "material"};
+	global.items[68] = { name: "Wheat", sprite: spr_wheat, stackable: true, max_stack: 9999, type: "material"};
+	global.items[69] = { name: "Wheat Bread", sprite: spr_wheat_bread, stackable: true, max_stack: 9999, type: "food", food_color_1: c_orange, food_color_2: c_yellow, hunger: 30, eat_time: 100, description: "Consumable"};
 	
 	
 	

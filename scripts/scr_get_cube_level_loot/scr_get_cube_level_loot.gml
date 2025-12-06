@@ -15,6 +15,7 @@ function scr_get_cube_loot(level){
 		{ item: 38, chance: 350, min_level: 5 }, // RAW COPPER
 		{ item: 11, blueprint: 42, chance: 225, min_level: 3 }, //COPPER ANVIL BLUEPRINT
 		{ item: 57, chance: 495, min_level: 5 }, // MAGIC CRYSTAL
+		{ item: 66, chance: 90, min_level: 2 }, // WHEAT SEEDS
 		
 		//TO REMOVE LATER
 		{ item: 38, chance: 2, min_level: 5 }, // RAW COPPER

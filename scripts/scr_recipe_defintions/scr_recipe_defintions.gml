@@ -47,5 +47,7 @@ function scr_recipe_defintions(){
 	global.recipes[42] = { name: "Brick", sprite: spr_brick, item_id: 62, count: 2, ingredients: [[61,4],[22,1]], unlocked: true, station: "furnace"};
 	global.recipes[43] = { name: "Brick Block", sprite: spr_brick_block_item, item_id: 63, count: 6, ingredients: [[62,2]], unlocked: true, station: "workbench"};
 	global.recipes[44] = { name: "Oven", sprite: spr_oven_item, item_id: 64, count: 1, ingredients: [[62,20],[8,5],[22,5]], unlocked: false, station: "workbench"};
+	global.recipes[45] = { name: "Popcorn", sprite: spr_popcorn, item_id: 65, count: 8, ingredients: [[60,3],[22,1]], unlocked: true, station: "oven"};
+	global.recipes[46] = { name: "Wheat Bread", sprite: spr_wheat_bread, item_id: 69, count: 3, ingredients: [[68,5],[22,1]], unlocked: true, station: "oven"};
 	
 }
