@@ -65,6 +65,8 @@ function scr_item_definitions(){
 	global.items[60] = { name: "Corn", sprite: spr_corn, stackable: true, max_stack: 9999, type: "food", food_color_1: c_green, food_color_2: c_yellow, hunger: 15, eat_time: 140, description: "Consumable"};
 	global.items[61] = { name: "Clay Ball", sprite: spr_clay_ball, stackable: true, max_stack: 9999, type: "material"};
 	global.items[62] = { name: "Brick", sprite: spr_brick, stackable: true, max_stack: 9999, type: "material"};
+	global.items[63] = { name: "Brick Block", sprite: spr_brick_block_item, stackable: true, max_stack: 9999, type: "block", block_id: 86, description: "Placeable"};
+	global.items[64] = { name: "Oven", sprite: spr_oven_item, stackable: true, max_stack: 9999, type: "big block", block_id: 87, description: "Cooks food\nPlaceable"};
 	
 	
 	

@@ -1,7 +1,7 @@
 function scr_add_item(item_id, count,blueprint,water_level){
 
 //First try stacking
-for (var i = 0; i < array_length(inventory); i++) {
+for (var i = 0; i < array_length(inventory)-1; i++) {
     var slot = inventory[i];
     if (slot != noone) {
         if (slot.item == item_id && global.items[item_id].stackable) {
@@ -9,13 +9,13 @@ for (var i = 0; i < array_length(inventory); i++) {
             slot.count += can_add;
             count -= can_add;
             inventory[i] = slot;
-            if (count <= 0) exit;
+            if (count <= 0) return true;
         }
     }
 }
 
 //Put in empty slots
-for (var i = 0; i < array_length(inventory); i++) {
+for (var i = 0; i < array_length(inventory)-1; i++) {
     if (inventory[i] == noone) {
 		var new_slot;
 		if (blueprint != -1)
@@ -26,8 +26,10 @@ for (var i = 0; i < array_length(inventory); i++) {
 			new_slot = { item: item_id, count: count };
         inventory[i] = new_slot;
         count = 0;
-        break;
+        return true;
     }
 }
+
+return false;
 
 }

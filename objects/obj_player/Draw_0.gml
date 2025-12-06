@@ -71,7 +71,9 @@ if (alive)
 		if (variable_instance_exists(global.blocks[global.world[# mx, my]], "hoverText"))
 		{
 			draw_set_color(c_white);
-			draw_text_ext_transformed((mx-1)*8,(my-2)*8,global.blocks[global.world[# mx, my]].hoverText,12,150,0.5,0.5,0);	
+			draw_set_halign(fa_center);
+			draw_text_ext_transformed(((mx-1)*8+(8*global.blocks[global.world[# mx, my]].xsize)-2),(my-2)*8,global.blocks[global.world[# mx, my]].hoverText,12,150,0.5,0.5,0);	
+			draw_set_halign(fa_left);
 		}
 		
 	}

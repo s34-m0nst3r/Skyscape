@@ -37,70 +37,72 @@ hover_y = 2 * sin(degtorad(current_time/5 + hover_offset));
 //Pickup by player
 if (distance_to_object(obj_player) < obj_player.magnet && canBePickedUp && obj_player.alive) {
     with (obj_player) {
-        scr_add_item(other.item_id, other.count, other.blueprint, other.water_level);
+        var result = scr_add_item(other.item_id, other.count, other.blueprint, other.water_level);
 		// Add pickup message
-		
-		//NO ITEMS IN ARRAY, add new message
-		if (array_length(pickup_messages) == 0)
+		if (result)
 		{
-			var msg = {};
-			if (other.blueprint != -1)
+			//NO ITEMS IN ARRAY, add new message
+			if (array_length(pickup_messages) == 0)
 			{
-				msg = {
-			        text  : global.items[other.item_id].name + ": "+ global.items[other.blueprint].name,
-			        alpha : 1,
-					count : other.count,
-					blueprint: other.blueprint
-			    };
+				var msg = {};
+				if (other.blueprint != -1)
+				{
+					msg = {
+				        text  : global.items[other.item_id].name + ": "+ global.items[other.blueprint].name,
+				        alpha : 1,
+						count : other.count,
+						blueprint: other.blueprint
+				    };
+				}
+				else
+				{
+					msg = {
+				        text  : global.items[other.item_id].name,
+				        alpha : 1,
+						count : other.count
+				    };
+				}
+				array_push(pickup_messages, msg);
 			}
+			//ITEMS IN ARRAY, CHECK IF COUNT SHOULD BE UPDATED
 			else
 			{
-				msg = {
-			        text  : global.items[other.item_id].name,
-			        alpha : 1,
-					count : other.count
-			    };
-			}
-			array_push(pickup_messages, msg);
-		}
-		//ITEMS IN ARRAY, CHECK IF COUNT SHOULD BE UPDATED
-		else
-		{
-			for (var i = 0; i < array_length(pickup_messages); i++) {
-			    if pickup_messages[i].text == global.items[other.item_id].name
-				{
-					pickup_messages[i].count++;
-					pickup_messages[i].alpha = 1;
-					break;
-				}
-				else if (i == array_length(pickup_messages)-1){
-					var msg = {};
-					if (other.blueprint != -1)
+				for (var i = 0; i < array_length(pickup_messages); i++) {
+				    if pickup_messages[i].text == global.items[other.item_id].name
 					{
-						msg = {
-					        text  : global.items[other.item_id].name + ": "+ global.items[other.blueprint].name,
-					        alpha : 1,
-							count : other.count,
-							blueprint: other.blueprint
-					    };
+						pickup_messages[i].count++;
+						pickup_messages[i].alpha = 1;
+						break;
 					}
-					else
-					{
-						msg = {
-					        text  : global.items[other.item_id].name,
-					        alpha : 1,
-							count : other.count
-					    };
+					else if (i == array_length(pickup_messages)-1){
+						var msg = {};
+						if (other.blueprint != -1)
+						{
+							msg = {
+						        text  : global.items[other.item_id].name + ": "+ global.items[other.blueprint].name,
+						        alpha : 1,
+								count : other.count,
+								blueprint: other.blueprint
+						    };
+						}
+						else
+						{
+							msg = {
+						        text  : global.items[other.item_id].name,
+						        alpha : 1,
+								count : other.count
+						    };
+						}
+						array_push(pickup_messages, msg);
+						break;
 					}
-					array_push(pickup_messages, msg);
-					break;
 				}
+
 			}
 
-		}
 
+		instance_destroy(other);
+	    }
 
-
-    }
-    instance_destroy();
+	}
 }
