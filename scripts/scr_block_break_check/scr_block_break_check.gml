@@ -120,6 +120,24 @@ function scr_block_break_check(_id, mx, my){
 			instance_create_depth(mx*8+4,my*8+4,-1,global.blocks[_id].break_particle);	
 		}
 	}
+	if (variable_instance_exists(global.blocks[_id],"storage_break"))
+	{
+		var storage = global.blockPointers[# mx, my].storage;
+		for (var i = 0; i < array_length(storage); i++)
+		{
+			if (storage[i] != noone)
+			{
+				var inst = instance_create_depth(mx*8+random_range(-4,4), my*8+random_range(-4,4), -5, obj_item_entity);
+				inst.item_id = storage[i].item;
+				inst.count = storage[i].count;
+				if (variable_instance_exists(storage[i],"blueprint"))
+					inst.blueprint = storage[i].blueprint;
+				if (variable_instance_exists(storage[i],"water_level"))
+					inst.water_level = storage[i].water_level;
+			}
+		}
+		
+	}
 
 	global.blockPointers[# mx, my] = {xcord: -1, ycord: -1};
 		

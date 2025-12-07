@@ -49,5 +49,16 @@ function scr_recipe_defintions(){
 	global.recipes[44] = { name: "Oven", sprite: spr_oven_item, item_id: 64, count: 1, ingredients: [[62,20],[8,5],[22,5]], unlocked: false, station: "workbench"};
 	global.recipes[45] = { name: "Popcorn", sprite: spr_popcorn, item_id: 65, count: 8, ingredients: [[60,3],[22,1]], unlocked: true, station: "oven"};
 	global.recipes[46] = { name: "Wheat Bread", sprite: spr_wheat_bread, item_id: 69, count: 3, ingredients: [[68,5],[22,1]], unlocked: true, station: "oven"};
+	global.recipes[47] = { name: "Mistral Crate", sprite: spr_mistral_crate_item, item_id: 70, count: 1, ingredients: [[8,30]], unlocked: false, station: "workbench"};
+	global.recipes[48] = { name: "Iron Ingot", sprite: spr_iron_ingot, item_id: 72, count: 1, ingredients: [[71,2],[22,1]], unlocked: false, station: "furnace"};
+	global.recipes[49] = { name: "Seed Machine", sprite: spr_seed_machine_item, item_id: 73, count: 1, ingredients: [[8,20],[33,15],[72,10],[57,3],[67,15]], unlocked: false, station: "workbench"};
+	global.recipes[50] = { name: "Red Mushroom Stalk Seeds", sprite: spr_red_mushroom_stalk_seeds, item_id: 74, count: 1, ingredients: [[31,3],[67,5]], unlocked: true, station: "seed machine"};
+	global.recipes[51] = { name: "Blue Mushroom Stalk Seeds", sprite: spr_blue_mushroom_stalk_seeds, item_id: 76, count: 1, ingredients: [[32,3],[67,5]], unlocked: true, station: "seed machine"};
+	global.recipes[52] = { name: "Corn Seeds", sprite: spr_corn_seeds, item_id: 59, count: 1, ingredients: [[60,3],[75,5]], unlocked: true, station: "seed machine"};
+	global.recipes[53] = { name: "Wheat Seeds", sprite: spr_wheat_seeds, item_id: 66, count: 1, ingredients: [[68,3],[75,5]], unlocked: true, station: "seed machine"};
+	global.recipes[54] = { name: "Ultimate Mushroom Soup", sprite: spr_ultimate_mushroom_soup, item_id: 79, count: 1, ingredients: [[36,1],[77,3]], unlocked: false, station: "soup pot"};
+	global.recipes[55] = { name: "Purple Mushroom Seeds", sprite: spr_purple_mushroom_stalk_seeds, item_id: 78, count: 1, ingredients: [[77,3],[67,5]], unlocked: false, station: "seed machine"};
+	global.recipes[56] = { name: "Huitlacoche Seeds", sprite: spr_huitlacoche_seeds, item_id: 81, count: 1, ingredients: [[80,3],[67,5],[75,5]], unlocked: false, station: "seed machine"};
+	global.recipes[57] = { name: "Grass Seeds", sprite: spr_grass_seeds, item_id: 20, count: 1, ingredients: [[67,2]], unlocked: false, station: "seed machine"};
 	
 }

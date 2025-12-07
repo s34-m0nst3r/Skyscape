@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_crop_crossbreed_table",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_crop_crossbreed_table",
+  "parent":{
+    "name":"Plants",
+    "path":"folders/Scripts/Plants.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

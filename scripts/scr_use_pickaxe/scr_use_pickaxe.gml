@@ -11,7 +11,7 @@ function scr_use_pickaxe(mx,my,selected_item,swingingTool,block_in_reach){
 		&& global.blocks[global.world[# mx,my]].type != "wall"
 		&& global.blocks[global.world[# mx,my]].type != "water"){
 		//Check if we have a reserved block, if so use source block instead
-		if (global.world[# mx, my] == 13) //RESERVERED
+		if (global.world[# mx, my] == 13) //RESERVED
 		{
 			var mx2 = mx;
 			var my2= my;

@@ -54,6 +54,9 @@ function scr_harvest_crop(harvest){
 		}
 	}
 	
+	//ADD POSSIBLE CROP CROSSBREEDS TO CROPS ARRAY
+	crops = scr_crop_crossbreed_table(crops);
+	
 	//Place new crop (random crop array
 	var newCrop = crops[irandom_range(0,array_length(crops)-1)];
 	//Get ground cords
@@ -108,20 +111,5 @@ function scr_harvest_crop(harvest){
 		scr_update_border_chunks(gx,groundY-1);
 	}
 	
-	
-	
-	/*
-	//UPDATE CHUNK
-	var cx = floor(gx / global.chunk_size);
-	var cy = floor((gy) / global.chunk_size);
-	scr_update_chunk(cx, cy); // update the affected chunk surface
-	//Check if nearby chunks should be updated
-	scr_update_border_chunks(gx,gy);
-
-	//Check bottom right blocks border chunks
-	scr_update_border_chunks(gx,gy+ysize);
-	*/
-				
-	//Check block
 
 }

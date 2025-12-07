@@ -163,74 +163,10 @@ if (alive)
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
 
-    // when inventory open: hover tooltip
-    if (inv_open) {
-        var hover_index = scr_inv_slot_from_mouse();
-        if (hover_index != -1) {
-            var hover_item = inventory[hover_index];
-            if (hover_item != noone) {
-                var item_def = global.items[hover_item.item];
-
-				var extraSpace = 0;
-                var info = item_def.name;
-                if (variable_instance_exists(hover_item,"blueprint"))
-                    info += ": " + global.items[hover_item.blueprint].name;
-                if (variable_instance_exists(item_def, "melee_damage")) {
-                    info +=  "\n" + src_format_one_dec(item_def.melee_damage) + " Melee Damage";
-                }
-                if (variable_instance_exists(item_def, "description")) {
-                    info += "\n" + item_def.description;
-                }
-                if (variable_instance_exists(item_def, "mining_power")) {
-                    info += "\nMining Power: " + src_format_one_dec(item_def.mining_power);
-                }
-                if (variable_instance_exists(item_def, "woodcutting_power")) {
-                    info += "\nWoodcutting Power: " + src_format_one_dec(item_def.woodcutting_power);
-                }
-                if (variable_instance_exists(item_def, "hammer_power")) {
-                    info += "\nHammer Power: " + src_format_one_dec(item_def.hammer_power);
-                }
-                if (variable_instance_exists(item_def, "hunger")) {
-                    info += "\nRestores " + string(item_def.hunger) + " hunger";
-                }
-				if (variable_instance_exists(item_def, "max_water")) {
-                    extraSpace+=16;
-                }
-
-                // draw near mouse (use cached gui_mx/gui_my)
-                var mx = gui_mx + 16;
-                var my = gui_my + 16;
-                var halign = draw_get_halign();
-                var valign = draw_get_valign();
-                draw_set_halign(fa_left);
-                draw_set_valign(fa_top);
-
-                draw_set_color(c_black);
-                draw_rectangle(mx-2, my-2, mx+300, my+string_height(info)+2+extraSpace, false);
-                draw_set_color(c_white);
-                draw_text(mx, my, info);
-			
-                draw_set_valign(fa_middle);
-				
-				// === Draw water info (if item has max_water) ===
-                if (variable_instance_exists(item_def, "max_water"))
-                {
-                    var water_y = my + string_height(info) + 6;
-
-                    // draw water drop sprite
-                    draw_sprite_ext(spr_water_drop, 0, mx+8, water_y, 1, 1, 0, c_white, 1);
-
-                    // draw max_water value
-                    draw_text(mx + sprite_get_width(spr_water_drop) + 4, water_y, string(hover_item.water_level) + "/" + string(item_def.max_water));
-                }
-
-
-                draw_set_valign(valign);
-            }
-        }
-    }
+   
     if (inv_open)
     {
+		//DISPLAY CRAFTING
         displayCraftingHover = false;
         scr_draw_crafting_menu(workstation_x,250,workstation);
 
@@ -380,7 +316,180 @@ if (alive)
                     dragging_item.count+=recipe.count;
             }
         }
+		
+		//DISPLAY STORAGE
+		if (storage != noone)
+		{
+			var icons = [];
+			for (var i = 0; i < array_length(storage); i++) {
+	            var col = i mod 10;
+	            var row = i div 10;
 
+	            var xx = 20 + col * slot_step + 550;
+	            var yy = 20 + slot_size + padding + row * slot_step; // stacked under hotbar
+
+	            // Background
+	            draw_set_alpha(0.3);
+	            draw_rectangle_color(xx, yy, xx+slot_size, yy+slot_size, c_black, c_black, c_black, c_black, false);
+
+	            // Cyan border
+	            draw_set_alpha(0.8);
+	            draw_rectangle_color(xx, yy, xx+slot_size, yy+slot_size, border_cyan, border_cyan, border_cyan, border_cyan, true);
+
+
+	            // Item
+	            var item = storage[i];
+	            if (item != noone) {
+	                var spr = global.items[item.item].sprite;
+					
+					//Gather valid icons
+					if (!scr_array_contains(icons,item.item))
+						array_push(icons,item.item);
+					
+	                var sw = sprite_get_width(spr);
+	                var sh = sprite_get_height(spr);
+
+	                var scale = min(slot_size / sw, slot_size / sh);
+	                draw_set_alpha(1);
+	                draw_sprite_ext(spr, 0, xx+slot_size/2, yy+slot_size/2, scale, scale, 0, c_white, 1);
+
+	                if (variable_instance_exists(item,"blueprint"))
+	                    draw_sprite_ext(global.items[item.blueprint].sprite, 0, xx+slot_size/2, yy+slot_size/2, scale, scale, 0, c_white, 0.8);
+
+	                if (global.items[item.item].stackable && item.count > 1) {
+	                    draw_set_color(c_white);
+	                    draw_text(xx+slot_size-12+xoff, yy+slot_size-12+yoff, string(item.count));
+	                }
+	            }
+			}
+			 // Background
+	        draw_set_alpha(0.3);
+	        draw_rectangle_color(20+550, 25, 20+550+200, 25+20, c_black, c_black, c_black, c_black, false);
+			draw_rectangle_color(20+900, 25, 20+900+50, 25+20, c_black, c_black, c_black, c_black, false);
+
+	        // Cyan border
+	        draw_set_alpha(0.8);
+	        draw_rectangle_color(20+550, 25, 20+550+200, 25+20, border_cyan, border_cyan, border_cyan, border_cyan, true);
+			draw_rectangle_color(20+900, 25, 20+900+50, 25+20, border_cyan, border_cyan, border_cyan, border_cyan, true);
+
+
+			//Storage name
+			draw_set_alpha(1);
+			draw_set_color(c_white);
+			draw_text_ext_transformed(20+550,25,storageName,10,100,1,1,0);
+			draw_text_ext_transformed(20+910,25,"Icon",10,100,1,1,0);
+			
+			if (storageIcon != -1)
+			{
+				draw_sprite_ext(storageIcon,-1,20+980,25+10,2,2,0,c_white,1);
+			}
+			
+			//Draw Icon buttons
+			for (var i = 0; i < array_length(icons); i++)
+			{
+				var col = i mod 3;
+	            var row = i div 3;
+
+	            var xx = 20 + col * slot_step/2 + 550 + 375;
+	            var yy = 45 + slot_size/2 + padding + row * slot_step/2; // stacked under hotbar
+				
+				if (point_in_rectangle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),xx,yy,xx+16,yy+16))
+				{
+					gpu_set_fog(true,c_white,0,0);
+					draw_sprite_ext(global.items[icons[i]].sprite,-1,xx,yy,1.3,1.3,0,make_colour_rgb(254,254,254),1);
+					gpu_set_fog(false,c_white,0,0);
+					
+					if (mouse_check_button_pressed(mb_left))
+					{
+						storageIcon = global.items[icons[i]].sprite;
+						global.blockPointers[# storageX,storageY].storageIcon = storageIcon;
+					}
+				}
+				
+				draw_sprite(global.items[icons[i]].sprite,-1,xx,yy);
+				
+			}
+			
+			//Draw Icon label
+			
+		}
+		
+
+    }
+	
+	 // when inventory open: hover tooltip
+    if (inv_open) {
+        var hover_index = scr_inv_slot_from_mouse();
+        if (hover_index != -1) {
+			//Determine whether storage or inventory is being viewed
+		    var hover_item;
+			if (hover_index >= total_size && storage != noone)
+				hover_item = storage[hover_index-total_size];
+			else
+				hover_item = inventory[hover_index];
+				
+				
+            if (hover_item != noone) {
+                var item_def = global.items[hover_item.item];
+
+				var extraSpace = 0;
+                var info = item_def.name;
+                if (variable_instance_exists(hover_item,"blueprint"))
+                    info += ": " + global.items[hover_item.blueprint].name;
+                if (variable_instance_exists(item_def, "melee_damage")) {
+                    info +=  "\n" + src_format_one_dec(item_def.melee_damage) + " Melee Damage";
+                }
+                if (variable_instance_exists(item_def, "description")) {
+                    info += "\n" + item_def.description;
+                }
+                if (variable_instance_exists(item_def, "mining_power")) {
+                    info += "\nMining Power: " + src_format_one_dec(item_def.mining_power);
+                }
+                if (variable_instance_exists(item_def, "woodcutting_power")) {
+                    info += "\nWoodcutting Power: " + src_format_one_dec(item_def.woodcutting_power);
+                }
+                if (variable_instance_exists(item_def, "hammer_power")) {
+                    info += "\nHammer Power: " + src_format_one_dec(item_def.hammer_power);
+                }
+                if (variable_instance_exists(item_def, "hunger")) {
+                    info += "\nRestores " + string(item_def.hunger) + " hunger";
+                }
+				if (variable_instance_exists(item_def, "max_water")) {
+                    extraSpace+=16;
+                }
+
+                // draw near mouse (use cached gui_mx/gui_my)
+                var mx = gui_mx + 16;
+                var my = gui_my + 16;
+                var halign = draw_get_halign();
+                var valign = draw_get_valign();
+                draw_set_halign(fa_left);
+                draw_set_valign(fa_top);
+
+                draw_set_color(c_black);
+				draw_set_alpha(1);
+                draw_rectangle(mx-2, my-2, mx+300, my+string_height(info)+2+extraSpace, false);
+                draw_set_color(c_white);
+                draw_text(mx, my, info);
+			
+                draw_set_valign(fa_middle);
+				
+				// === Draw water info (if item has max_water) ===
+                if (variable_instance_exists(item_def, "max_water"))
+                {
+                    var water_y = my + string_height(info) + 6;
+
+                    // draw water drop sprite
+                    draw_sprite_ext(spr_water_drop, 0, mx+8, water_y, 1, 1, 0, c_white, 1);
+
+                    // draw max_water value
+                    draw_text(mx + sprite_get_width(spr_water_drop) + 4, water_y, string(hover_item.water_level) + "/" + string(item_def.max_water));
+                }
+
+
+                draw_set_valign(valign);
+            }
+        }
     }
 
 

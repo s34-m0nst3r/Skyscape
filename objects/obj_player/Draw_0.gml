@@ -75,6 +75,19 @@ if (alive)
 			draw_text_ext_transformed(((mx-1)*8+(8*global.blocks[global.world[# mx, my]].xsize)-2),(my-2)*8,global.blocks[global.world[# mx, my]].hoverText,12,150,0.5,0.5,0);	
 			draw_set_halign(fa_left);
 		}
+		if (variable_instance_exists(global.blocks[global.world[# mx, my]], "hoverIcon") && variable_instance_exists(global.blockPointers[# mx,my],"storageIcon") && global.blockPointers[# mx,my].storageIcon != -1)
+		{
+			draw_set_halign(fa_center);
+			
+			//gpu_set_fog(true,c_white,0,0);
+			//draw_sprite(global.blockPointers[# mx,my].storageIcon,-1,((mx-1)*8+(8*global.blocks[global.world[# mx, my]].xsize)-2)+1,((my-1)*8)+1);
+			//draw_sprite(global.blockPointers[# mx,my].storageIcon,-1,((mx-1)*8+(8*global.blocks[global.world[# mx, my]].xsize)-2)+1,((my-1)*8)-1);
+			//draw_sprite(global.blockPointers[# mx,my].storageIcon,-1,((mx-1)*8+(8*global.blocks[global.world[# mx, my]].xsize)-2)-1,((my-1)*8)+1);
+			//draw_sprite(global.blockPointers[# mx,my].storageIcon,-1,((mx-1)*8+(8*global.blocks[global.world[# mx, my]].xsize)-2)-1,((my-1)*8)-1);
+			//gpu_set_fog(false,c_white,0,0);
+			draw_sprite(global.blockPointers[# mx,my].storageIcon,-1,((mx-1)*8+(8*global.blocks[global.world[# mx, my]].xsize)-2),(my-1)*8)
+			draw_set_halign(fa_left);
+		}
 		
 	}
 	else

@@ -72,6 +72,18 @@ function scr_item_definitions(){
 	global.items[67] = { name: "Plant Fiber", sprite: spr_plant_fiber, stackable: true, max_stack: 9999, type: "material"};
 	global.items[68] = { name: "Wheat", sprite: spr_wheat, stackable: true, max_stack: 9999, type: "material"};
 	global.items[69] = { name: "Wheat Bread", sprite: spr_wheat_bread, stackable: true, max_stack: 9999, type: "food", food_color_1: c_orange, food_color_2: c_yellow, hunger: 30, eat_time: 100, description: "Consumable"};
+	global.items[70] = { name: "Mistral Crate", sprite: spr_mistral_crate_item, stackable: true, max_stack: 9999, type: "big block", block_id: 92, description: "Stores up to 50 items\nPlaceable"};
+	global.items[71] = { name: "Raw Iron", sprite: spr_raw_iron, stackable: true, max_stack: 9999, type: "material"};
+	global.items[72] = { name: "Iron Ingot", sprite: spr_iron_ingot, stackable: true, max_stack: 9999, type: "material"};
+	global.items[73] = { name: "Seed Machine", sprite: spr_seed_machine_item, stackable: true, max_stack: 9999, type: "big block", block_id: 93, description: "Reconstructs fiber into seeds\nPlaceable"};
+	global.items[74] = { name: "Red Mushroom Stalk Seeds", sprite: spr_red_mushroom_stalk_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 94, description: "Plant on farmland\nConsumable",seed_color: c_red};
+	global.items[75] = { name: "Fungus Fiber", sprite: spr_fungus_fiber, stackable: true, max_stack: 9999, type: "material"};
+	global.items[76] = { name: "Blue Mushroom Stalk Seeds", sprite: spr_blue_mushroom_stalk_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 98, description: "Plant on farmland\nConsumable",seed_color: c_blue};
+	global.items[77] = { name: "Purple Mushroom", sprite: spr_purple_mushroom_item, stackable: true, max_stack: 9999, type: "block", block_id: 102, description: "Placeable"};
+	global.items[78] = { name: "Purple Mushroom Stalk Seeds", sprite: spr_purple_mushroom_stalk_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 103, description: "Plant on farmland\nConsumable",seed_color: c_purple};
+	global.items[79] = { name: "Ultimate Mushroom Soup", sprite: spr_ultimate_mushroom_soup, stackable: true, max_stack: 9999, type: "food", food_color_1: c_purple, food_color_2: c_purple, hunger: 35, eat_time: 120, description: "Consumable"};
+	global.items[80] = { name: "Huitlacoche", sprite: spr_huitlacoche, stackable: true, max_stack: 9999, type: "food", food_color_1: c_gray, food_color_2: c_blue, hunger: 30, eat_time: 156, description: "Consumable"};
+	global.items[81] = { name: "Huitlacoche Seeds", sprite: spr_huitlacoche_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 107, description: "Plant on farmland\nConsumable",seed_color: c_gray};
 	
 	
 	

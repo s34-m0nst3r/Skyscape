@@ -23,6 +23,11 @@ pickup_messages = [];
 
 // Build slots
 inventory = array_create(total_size, noone);
+storage = noone;
+storageX = -1;
+storageY = -1;
+storageName = "";
+storageIcon = -1;
 
 
 // Hotbar selection

@@ -166,6 +166,10 @@ if (alive)
 		{
 			search_active = false;
 			search_text = "";
+			storage = noone;
+			storageX = -1;
+			storageY = -1;
+			storageIcon = -1;
 		}
 	
 		if (!inv_open && dragging_item != noone)
@@ -224,75 +228,11 @@ if (alive)
 
 	//Left Press
 	if (inv_open && mouse_check_button_pressed(mb_left)) {
-	    var clicked_index = scr_inv_slot_from_mouse();
-	    if (clicked_index != -1) {
-	        if (dragging_item == noone) {
-	            // Pick up item
-	            dragging_item = inventory[clicked_index];
-	            inventory[clicked_index] = noone;
-	            dragging_index = clicked_index;
-	        } else {
-	           // --- Place / Merge / Swap ---
-	            if (inventory[clicked_index] == noone) {
-	                // Empty slot → place
-	                inventory[clicked_index] = dragging_item;
-	                dragging_item = noone;
-
-	            } else if (inventory[clicked_index].item == dragging_item.item
-	                       && global.items[dragging_item.item].stackable) {
-	                //Merge stacks
-	                var max_stack = global.items[dragging_item.item].max_stack;
-	                var space = max_stack - inventory[clicked_index].count;
-	                var to_add = min(space, dragging_item.count);
-
-	                inventory[clicked_index].count += to_add;
-	                dragging_item.count -= to_add;
-
-	                if (dragging_item.count <= 0) dragging_item = noone;
-
-	            } else {
-	                // Different item → swap
-	                var temp = inventory[clicked_index];
-	                inventory[clicked_index] = dragging_item;
-	                dragging_item = temp;
-	            }
-	        }
-	    }
+	    scr_inventory_left_click(total_size,dragging_item,inventory);
 	}
 	// Right Press (Split / Merge / Place)
 	if (inv_open && mouse_check_button_pressed(mb_right)) {
-	    var clicked_index = scr_inv_slot_from_mouse();
-	    if (clicked_index != -1) {
-	        if (dragging_item == noone) {
-	            // --- Split stack in half ---
-	            if (inventory[clicked_index] != noone) {
-	                var itemClicked = inventory[clicked_index];
-	                if (global.items[itemClicked.item].stackable && itemClicked.count > 1) {
-	                    var half = floor(itemClicked.count / 2);
-	                    dragging_item = { item: itemClicked.item, count: half };
-	                    inventory[clicked_index].count -= half;
-	                }
-	            }
-	        } 
-			//Right click empty slot to place one item
-			else if (dragging_item != noone) 
-			{
-				if (inventory[clicked_index] == noone)
-				{
-					inventory[clicked_index] = { item: dragging_item.item, count: 1 };
-					dragging_item.count--;
-					if (dragging_item.count == 0)
-						dragging_item = noone;
-				}
-				else if (inventory[clicked_index].item == dragging_item.item)
-				{
-					inventory[clicked_index].count++;
-					dragging_item.count--;
-					if (dragging_item.count == 0)
-						dragging_item = noone;
-				}
-			}
-	    }
+	   scr_inventory_right_click(total_size,dragging_item,inventory);
 	}
 
 

@@ -21,6 +21,7 @@ function scr_get_cube_loot(level){
 		{ item: 38, chance: 2, min_level: 5 }, // RAW COPPER
 		{ item: 22, chance: 2, min_level: 4 }, // COAL
 		{ item: 33, chance: 2, min_level: 4 }, // STONE
+		{ item: 71, chance: 2, min_level: 5 }, // RAW IRON
 	];
 
 	// Loop through unlocked items
