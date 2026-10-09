@@ -84,6 +84,11 @@ function scr_item_definitions(){
 	global.items[79] = { name: "Ultimate Mushroom Soup", sprite: spr_ultimate_mushroom_soup, stackable: true, max_stack: 9999, type: "food", food_color_1: c_purple, food_color_2: c_purple, hunger: 35, eat_time: 120, description: "Consumable"};
 	global.items[80] = { name: "Huitlacoche", sprite: spr_huitlacoche, stackable: true, max_stack: 9999, type: "food", food_color_1: c_gray, food_color_2: c_blue, hunger: 30, eat_time: 156, description: "Consumable"};
 	global.items[81] = { name: "Huitlacoche Seeds", sprite: spr_huitlacoche_seeds, stackable: true, max_stack: 9999, type: "seed", seed_id: 107, description: "Plant on farmland\nConsumable",seed_color: c_gray};
+	global.items[82] = { name: "Brick Wall", sprite: spr_brick_wall_item, stackable: true, max_stack: 9999, type: "wall", block_id: 111, description: "Placeable"};
+	global.items[83] = { name: "Shroomloom", sprite: spr_shroomloom_item, stackable: true, max_stack: 9999, type: "big block", block_id: 112, description: "Weaves fungus into workable material\nPlaceable"};
+	global.items[84] = { name: "Red Mushroom Block", sprite: spr_red_mushroom_block_item, stackable: true, max_stack: 9999, type: "block", block_id: 113, description: "Placeable"};
+	global.items[85] = { name: "Blue Mushroom Block", sprite: spr_blue_mushroom_block_item, stackable: true, max_stack: 9999, type: "block", block_id: 114, description: "Placeable"};
+	global.items[86] = { name: "Purple Mushroom Block", sprite: spr_purple_mushroom_block_item, stackable: true, max_stack: 9999, type: "block", block_id: 115, description: "Placeable"};
 	
 	
 	

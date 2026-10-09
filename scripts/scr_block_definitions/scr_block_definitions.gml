@@ -113,6 +113,12 @@ function scr_block_definitions(){
 	global.blocks[108] = { name: "huitlacoche stage 2",  solid: false,  sprite: spr_corn_stage_2, item_id: -1, durability: 200, type: "big block", floating: false, xsize: 1, ysize: 3, opacity: 1,canBreathe: true, floatingPlace: false, dropCount: 1, crop: true, lowerGrowth: 10000, upperGrowth: 20000, base_crop: 107 ,next_stage: 109};
 	global.blocks[109] = { name: "huitlacoche stage 3",  solid: false,  sprite: spr_huitlacoche_stage_3, item_id: -1, durability: 200, type: "big block", floating: false, xsize: 1, ysize: 3, opacity: 1,canBreathe: true, floatingPlace: false, dropCount: 1,crop: true, lowerGrowth: 10000, upperGrowth: 20000, base_crop: 107 ,next_stage: 110};
 	global.blocks[110] = { name: "huitlacoche stage 4",  solid: false,  sprite: spr_huitlacoche_stage_4, item_id: 81, durability: 200, type: "big block",  floating: false, xsize: 1, ysize: 3, opacity: 1,canBreathe: true, floatingPlace: false, dropCount: 1, hover: true, hoverText: "(Harvest)", hoverScript: scr_harvest_crop, hoverParam: function() { return [[80,irandom_range(1,3)],[81,irandom_range(1,2)],[67,irandom_range(1,3)],[75,irandom_range(1,3)]] }, base_crop: 107};
+	global.blocks[111] = { name: "brick wall",  solid: true,  sprite: spr_brick_wall, item_id: 82, durability: 130, type: "wall", floating: true, opacity: 1,canBreathe: true, dropCount: 1};
+	global.blocks[112] = { name: "shroomloom",  solid: false,  sprite: spr_shroomloom, item_id: 83, durability: 90, type: "big block", floating: false, xsize: 3, ysize: 2, hover: true, hoverText: "Shroomloom", hoverScript: scr_open_workstation, hoverParam: "shroomloom", opacity: 1,canBreathe: true, floatingPlace: false, dropCount: 1,animated: true};
+	global.blocks[113] = { name: "red mushroom block",  solid: true,  sprite: spr_red_mushroom_block, item_id: 84, durability: 30, type: "block", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
+	global.blocks[114] = { name: "blue mushroom block",  solid: true,  sprite: spr_blue_mushroom_block, item_id: 85, durability: 30, type: "block", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
+	global.blocks[115] = { name: "purple mushroom block",  solid: true,  sprite: spr_purple_mushroom_block, item_id: 86, durability: 30, type: "block", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
+	
 	
 
 

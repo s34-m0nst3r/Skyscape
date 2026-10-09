@@ -60,5 +60,12 @@ function scr_recipe_defintions(){
 	global.recipes[55] = { name: "Purple Mushroom Seeds", sprite: spr_purple_mushroom_stalk_seeds, item_id: 78, count: 1, ingredients: [[77,3],[67,5]], unlocked: false, station: "seed machine"};
 	global.recipes[56] = { name: "Huitlacoche Seeds", sprite: spr_huitlacoche_seeds, item_id: 81, count: 1, ingredients: [[80,3],[67,5],[75,5]], unlocked: false, station: "seed machine"};
 	global.recipes[57] = { name: "Grass Seeds", sprite: spr_grass_seeds, item_id: 20, count: 1, ingredients: [[67,2]], unlocked: false, station: "seed machine"};
+	global.recipes[58] = { name: "Brick Wall", sprite: spr_brick_wall_item, item_id: 82, count: 4, ingredients: [[62,1]], unlocked: false, station: "workbench"};
+	global.recipes[59] = { name: "Shroomloom", sprite: spr_shroomloom_item, item_id: 83, count: 1, ingredients: [[8,10],[41,15],[57,3],[75,20]], unlocked: false, station: "workbench"};
+	global.recipes[60] = { name: "Red Mushroom Block", sprite: spr_red_mushroom_block_item, item_id: 84, count: 8, ingredients: [[31,1],[75,1]], unlocked: true, station: "shroomloom"};
+	global.recipes[61] = { name: "Blue Mushroom Block", sprite: spr_blue_mushroom_block_item, item_id: 85, count: 8, ingredients: [[32,1],[75,1]], unlocked: true, station: "shroomloom"};
+	global.recipes[62] = { name: "Purple Mushroom Block", sprite: spr_purple_mushroom_block_item, item_id: 86, count: 8, ingredients: [[77,1],[75,1]], unlocked: false, station: "shroomloom"};
+	
+	
 	
 }

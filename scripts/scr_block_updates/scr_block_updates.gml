@@ -136,7 +136,7 @@ function src_block_updates() {
 		else if (global.blocks[global.world[# xx, yy]].name == "wet farmland") {		
             // Countdown
             if (global.block_timers[# xx, yy] <= 0) {
-                global.block_timers[# xx, yy] = irandom_range(30000/blockUpdateRate, 40000/blockUpdateRate); // 
+                global.block_timers[# xx, yy] = irandom_range(30000/blockUpdateRate, 40000/blockUpdateRate) + 1000; // 
 			} 
 			else {
                 global.block_timers[# xx, yy]--;
