@@ -36,3 +36,5 @@ else if (valPercent > 2)
 {
 	draw_color = c_yellow;
 }
+
+otherValPercent = 0;

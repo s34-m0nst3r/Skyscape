@@ -118,6 +118,16 @@ function scr_block_definitions(){
 	global.blocks[113] = { name: "red mushroom block",  solid: true,  sprite: spr_red_mushroom_block, item_id: 84, durability: 30, type: "block", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
 	global.blocks[114] = { name: "blue mushroom block",  solid: true,  sprite: spr_blue_mushroom_block, item_id: 85, durability: 30, type: "block", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
 	global.blocks[115] = { name: "purple mushroom block",  solid: true,  sprite: spr_purple_mushroom_block, item_id: 86, durability: 30, type: "block", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
+	global.blocks[116] = { name: "red mushroom wall",  solid: true,  sprite: spr_red_mushroom_wall, item_id: 87, durability: 30, type: "wall", floating: true, opacity: 1,canBreathe: true, dropCount: 1};
+	global.blocks[117] = { name: "blue mushroom wall",  solid: true,  sprite: spr_blue_mushroom_wall, item_id: 88, durability: 30, type: "wall", floating: true, opacity: 1,canBreathe: true, dropCount: 1};
+	global.blocks[118] = { name: "purple mushroom wall",  solid: true,  sprite: spr_purple_mushroom_wall, item_id: 89, durability: 30, type: "wall", floating: true, opacity: 1,canBreathe: true, dropCount: 1};
+	global.blocks[119] = { name: "mistral gravestone",  solid: false,  sprite: spr_mistral_gravestone, item_id: 91, durability: 100, type: "big block", floating: false, xsize: 2, ysize: 2, opacity: 1,canBreathe: true, floatingPlace: false, dropCount: 1};
+	global.blocks[120] = { name: "stone gravestone",  solid: false,  sprite: spr_stone_gravestone, item_id: 92, durability: 135, type: "big block", floating: false, xsize: 2, ysize: 2, opacity: 1,canBreathe: true, floatingPlace: false, dropCount: 1};
+	global.blocks[121] = { name: "limestone block",  solid: true,  sprite: spr_limestone, item_id: 93, durability: 75, type: "block", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
+	global.blocks[122] = { name: "gravel",  solid: true,  sprite: spr_gravel, item_id: 94, durability: 60, type: "block", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
+	global.blocks[123] = { name: "limestone platform",  solid: false,  sprite: spr_limestone_platform, item_id: 95, durability: 75, type: "platform", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
+	global.blocks[124] = { name: "limestone wall",  solid: true,  sprite: spr_limestone_wall, item_id: 96, durability: 75, type: "wall", floating: true, opacity: 1,canBreathe: true, dropCount: 1};
+	global.blocks[125] = { name: "brick platform",  solid: false,  sprite: spr_brick_platform, item_id: 97, durability: 130, type: "platform", floating: true, opacity: 1,canBreathe: true, floatingPlace: true, dropCount: 1};
 	
 	
 

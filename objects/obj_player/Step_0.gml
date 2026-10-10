@@ -425,42 +425,6 @@ if (alive)
 
 if (obj_stat_manager.hp <= 0 && alive)
 {
-	alive=false;
-	alarm[4]=250;
-	
-	for (var i = 0; i < irandom_range(8,12); i++)
-	{
-		instance_create_depth(x,y,-1,obj_blood);
-		var index = irandom_range(0,total_size-1);
-		var item = inventory[index]
-		if (item != noone)
-		{
-			var drop_id   = item.item;
-			var drop_type = global.items[drop_id];
-
-			var xx = obj_player.x;
-			var yy = obj_player.y - 8; // spawn slightly above player
-			var inst = instance_create_layer(xx, yy, "Instances", obj_item_entity);
-        
-			inst.item_id = drop_id;
-			inst.count   = item.count;
-			inst.canBePickedUp = false;
-			if (variable_instance_exists(item,"blueprint"))
-				inst.blueprint = item.blueprint;
-			if (variable_instance_exists(item,"water_level"))
-				inst.water_level = item.water_level;
-			inst.alarm[0] = 25;
-
-
-			var itemhsp = random_range(-1,1);
-			var itemvsp = random_range(-0.1,-0.9);
-			inst.hsp = itemhsp;
-			inst.vsp = itemvsp;
-			inst.impulse_time = 25;
-			
-			inventory[index] = noone;
-		}
-	}
-	
+	scr_player_death();
 	
 }

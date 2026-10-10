@@ -28,7 +28,7 @@ function scr_recipe_defintions(){
 	global.recipes[23] = { name: "Furnace", sprite: spr_furnace_item, item_id: 40, count: 1, ingredients: [[33,20],[8,5],[22,5]], unlocked: false, station: "workbench"};
 	global.recipes[24] = { name: "Copper Ingot", sprite: spr_copper_ingot, item_id: 41, count: 1, ingredients: [[38,2],[22,1]], unlocked: true, station: "furnace"};
 	global.recipes[25] = { name: "Copper Torch", sprite: spr_copper_torch_item, item_id: 24, count: 4, ingredients: [[8,1],[38,1]], unlocked: false, station: "basic"};
-	global.recipes[26] = { name: "Copper Anvil", sprite: spr_copper_anvil_item, item_id: 42, count: 1, ingredients: [[41,5]], unlocked: false, station: "workbench"};
+	global.recipes[26] = { name: "Copper Anvil", sprite: spr_copper_anvil_item, item_id: 42, count: 1, ingredients: [[41,10]], unlocked: false, station: "workbench"};
 	global.recipes[27] = { name: "Copper Sword", sprite: spr_copper_sword, item_id: 43, count: 1, ingredients: [[41,35],[8,5]], unlocked: true, station: "anvil"};
 	global.recipes[28] = { name: "Copper Pickaxe", sprite: spr_copper_pickaxe, item_id: 44, count: 1, ingredients: [[41,35],[8,5]], unlocked: true, station: "anvil"};
 	global.recipes[29] = { name: "Copper Axe", sprite: spr_copper_axe, item_id: 45, count: 1, ingredients: [[41,35],[8,5]], unlocked: true, station: "anvil"};
@@ -47,7 +47,7 @@ function scr_recipe_defintions(){
 	global.recipes[42] = { name: "Brick", sprite: spr_brick, item_id: 62, count: 2, ingredients: [[61,4],[22,1]], unlocked: true, station: "furnace"};
 	global.recipes[43] = { name: "Brick Block", sprite: spr_brick_block_item, item_id: 63, count: 6, ingredients: [[62,2]], unlocked: true, station: "workbench"};
 	global.recipes[44] = { name: "Oven", sprite: spr_oven_item, item_id: 64, count: 1, ingredients: [[62,20],[8,5],[22,5]], unlocked: false, station: "workbench"};
-	global.recipes[45] = { name: "Popcorn", sprite: spr_popcorn, item_id: 65, count: 8, ingredients: [[60,3],[22,1]], unlocked: true, station: "oven"};
+	global.recipes[45] = { name: "Popcorn", sprite: spr_popcorn, item_id: 65, count: 4, ingredients: [[60,3],[22,1]], unlocked: true, station: "oven"};
 	global.recipes[46] = { name: "Wheat Bread", sprite: spr_wheat_bread, item_id: 69, count: 3, ingredients: [[68,5],[22,1]], unlocked: true, station: "oven"};
 	global.recipes[47] = { name: "Mistral Crate", sprite: spr_mistral_crate_item, item_id: 70, count: 1, ingredients: [[8,30]], unlocked: false, station: "workbench"};
 	global.recipes[48] = { name: "Iron Ingot", sprite: spr_iron_ingot, item_id: 72, count: 1, ingredients: [[71,2],[22,1]], unlocked: false, station: "furnace"};
@@ -65,6 +65,15 @@ function scr_recipe_defintions(){
 	global.recipes[60] = { name: "Red Mushroom Block", sprite: spr_red_mushroom_block_item, item_id: 84, count: 8, ingredients: [[31,1],[75,1]], unlocked: true, station: "shroomloom"};
 	global.recipes[61] = { name: "Blue Mushroom Block", sprite: spr_blue_mushroom_block_item, item_id: 85, count: 8, ingredients: [[32,1],[75,1]], unlocked: true, station: "shroomloom"};
 	global.recipes[62] = { name: "Purple Mushroom Block", sprite: spr_purple_mushroom_block_item, item_id: 86, count: 8, ingredients: [[77,1],[75,1]], unlocked: false, station: "shroomloom"};
+	global.recipes[63] = { name: "Red Mushroom Wall", sprite: spr_red_mushroom_wall_item, item_id: 87, count: 4, ingredients: [[84,1]], unlocked: true, station: "shroomloom"};
+	global.recipes[64] = { name: "Blue Mushroom Wall", sprite: spr_blue_mushroom_wall_item, item_id: 88, count: 4, ingredients: [[85,1]], unlocked: true, station: "shroomloom"};
+	global.recipes[65] = { name: "Purple Mushroom Wall", sprite: spr_purple_mushroom_wall_item, item_id: 89, count: 4, ingredients: [[86,1]], unlocked: false, station: "shroomloom"};
+	global.recipes[66] = { name: "Popfungus", sprite: spr_popfungus, item_id: 90, count: 4, ingredients: [[80,3],[22,1]], unlocked: false, station: "oven"};
+	global.recipes[67] = { name: "Mistral Gravestone", sprite: spr_mistral_gravestone_item, item_id: 91, count: 1, ingredients: [[8,20]], unlocked: false, station: "workbench"};
+	global.recipes[68] = { name: "Stone Gravestone", sprite: spr_stone_gravestone_item, item_id: 92, count: 1, ingredients: [[33,20]], unlocked: false, station: "workbench"};
+	global.recipes[69] = { name: "Limestone Platform", sprite: spr_limestone_platform_item, item_id: 95, count: 2, ingredients: [[93,1]], unlocked: false, station: "basic"};
+	global.recipes[70] = { name: "Limestone Wall", sprite: spr_limestone_wall_item, item_id: 96, count: 4, ingredients: [[93,1]], unlocked: false, station: "basic"};
+	global.recipes[71] = { name: "Brick Platform", sprite: spr_brick_platform_item, item_id: 97, count: 2, ingredients: [[62,1]], unlocked: false, station: "basic"};
 	
 	
 	

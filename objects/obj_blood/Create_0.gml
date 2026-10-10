@@ -15,3 +15,4 @@ image_xscale=scale;
 image_yscale=scale;
 vsp = random_range(-0.5,-2);
 hsp = random_range(-1,1);
+image_blend = c_red;
